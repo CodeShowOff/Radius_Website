@@ -49,8 +49,8 @@
 1. **Blog Posts** (Create these pages)
    - "How Radius Uses Bluetooth for Privacy-First Social Discovery"
    - "Radius vs. Traditional Dating Apps: Why Proximity Matters"
-   - "Complete Guide to the Radius Guess Me Game"
    - "How to Use Radius Nearby Groups for Events"
+   - "Getting Started with Radius: A Complete Guide"
 
 2. **Backlink Building**
    - Submit to app directories (AlternativeTo, Product Hunt)
@@ -73,7 +73,6 @@
 - `bluetooth social app`
 - `privacy social app`
 - `nearby connections app`
-- `guess me game`
 - `nearby groups`
 - `nearby help app`
 

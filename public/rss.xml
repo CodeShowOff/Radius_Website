@@ -24,7 +24,7 @@
     
     <item>
       <title>Radius Connect App Launch - Social Discovery Reimagined</title>
-      <description>Radius Connect is now available on iOS and Android! Connect with people nearby, join group chatrooms, play the Guess Me game, chat with rich media, and help your community. Download now for free - privacy-first social networking without tracking.</description>
+      <description>Radius Connect is now available on iOS and Android! Connect with people nearby, join group chatrooms, chat with rich media, and help your community. Download now for free - privacy-first social networking without tracking.</description>
       <link>https://radiusconnect.tech/#download</link>
       <guid isPermaLink="true">https://radiusconnect.tech/#download</guid>
       <pubDate>Mon, 03 Feb 2026 00:00:00 GMT</pubDate>
@@ -36,7 +36,6 @@
         <h3>Key Features of Radius Connect:</h3>
         <ul>
           <li><strong>Proximity Discovery</strong> - Find and connect with people nearby</li>
-          <li><strong>Guess Me Game</strong> - Anonymous icebreaker conversations with nearby users</li>
           <li><strong>Rich Messaging</strong> - Send texts, voice messages, photos, stickers, and documents</li>
           <li><strong>Random Group Chatrooms</strong> - Join global topic-based groups</li>
           <li><strong>Nearby Groups</strong> - Create temporary Bluetooth-based groups for events</li>
@@ -55,16 +54,6 @@
       <pubDate>Mon, 03 Feb 2026 00:00:00 GMT</pubDate>
       <category>Technology</category>
       <category>Privacy</category>
-    </item>
-    
-    <item>
-      <title>Radius Guess Me Game - The Fun Way to Meet New People</title>
-      <description>Discover how the Radius Guess Me game works. Start anonymous conversations with nearby users, try to guess each other's identity, and make genuine connections.</description>
-      <link>https://radiusconnect.tech/#how-it-works</link>
-      <guid isPermaLink="true">https://radiusconnect.tech/#how-it-works</guid>
-      <pubDate>Mon, 03 Feb 2026 00:00:00 GMT</pubDate>
-      <category>Features</category>
-      <category>Games</category>
     </item>
   </channel>
 </rss>

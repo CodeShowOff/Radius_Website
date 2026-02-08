@@ -3,7 +3,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { 
   UserPlus, Globe, MessageCircle, Users, Sparkles, 
-  Bluetooth, Gamepad2, MapPin, BluetoothSearching,
+  Bluetooth, MapPin, BluetoothSearching,
   HandHeart, Shield, Image, Mic
 } from 'lucide-react';
 import './HowItWorks.css';
@@ -32,7 +32,7 @@ const HowItWorks = () => {
       number: '03',
       icon: MessageCircle,
       title: 'Rich Conversations',
-      description: 'Chat with texts, voice messages, photos, and stickers. Play the Guess Me game for fun icebreakers.',
+      description: 'Chat with texts, voice messages, photos, and stickers. Enjoy rich communication features for meaningful connections.',
       color: '#F472B6',
     },
     {
@@ -56,18 +56,6 @@ const HowItWorks = () => {
         'Send connection request to anyone',
       ],
       description: 'Uses Bluetooth LE to detect other Radius users within 10 meters without GPS tracking.'
-    },
-    {
-      icon: Gamepad2,
-      title: 'Guess Me Game',
-      color: '#F472B6',
-      steps: [
-        'Select a nearby user to play with',
-        'Start anonymous chat session',
-        'Try to guess each other\'s identity',
-        'Reveal identities if you both connect',
-      ],
-      description: 'Fun icebreaker that lets you chat anonymously before revealing your identity.'
     },
     {
       icon: MessageCircle,

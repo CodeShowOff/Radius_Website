@@ -91,7 +91,7 @@ const Privacy = () => {
               <li>Enable Bluetooth-based proximity discovery between users</li>
               <li>Facilitate messaging and connections between users who mutually accept</li>
               <li>Create and manage user profiles visible to other Radius users</li>
-              <li>Operate features like Guess Me, group chats, and location-based groups</li>
+              <li>Operate features like group chats and location-based groups</li>
               <li>Enable Nearby Help (SOS) feature using GPS location for emergency assistance</li>
             </ul>
 

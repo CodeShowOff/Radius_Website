@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Shield, Zap, Eye, Lock, Globe, Heart } from 'lucide-react';
 import './WhyRadius.css';
 
@@ -47,7 +47,7 @@ const WhyRadius = () => {
   const stats = [
     { value: 100, suffix: '%', label: 'Privacy Protected' },
     { value: 1, suffix: '', label: 'Feature Uses GPS' },
-    { value: 9, suffix: '+', label: 'Core Features' },
+    { value: 8, suffix: '+', label: 'Core Features' },
     { value: 3, suffix: '', label: 'Group Types' },
   ];
 
@@ -75,12 +75,12 @@ const WhyRadius = () => {
     {
       icon: Heart,
       title: 'Community Focused',
-      description: 'Help nearby users, join group discussions, play games. Build real relationships.',
+      description: 'Help nearby users, join group discussions, and build real relationships through meaningful interactions.',
     },
     {
       icon: Eye,
       title: 'Flexible & Fun',
-      description: 'Serious groups or casual chats. Anonymous games or direct connections. Your choice.',
+      description: 'Serious groups or casual chats. Direct connections or community discussions. Your choice.',
     },
   ];
 

@@ -21,11 +21,11 @@ const Blog = () => {
       image: "/app_icon.png"
     },
     {
-      title: "Radius Guess Me: Making Introductions Fun Again",
-      excerpt: "How our anonymous chat feature is breaking the ice and starting conversations.",
+      title: "Privacy-First Social Networking: What It Really Means",
+      excerpt: "Understanding how Radius protects your data and why privacy matters in modern social apps.",
       date: "January 15, 2026",
       readTime: "3 min read",
-      category: "Features",
+      category: "Privacy",
       image: "/app_icon.png"
     }
   ];

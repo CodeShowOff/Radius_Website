@@ -1,11 +1,10 @@
-import { useRef, useEffect, useState, useMemo, memo } from 'react';
+import { useRef, useEffect, useState, memo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
   Bluetooth, 
   MessageCircle, 
   Users, 
   Shield, 
-  Gamepad2, 
   MapPin,
   Mic,
   Image,
@@ -17,7 +16,7 @@ import {
 import './Features.css';
 
 // Memoized feature card to prevent re-renders
-const FeatureCard = memo(({ feature, index, isInView, isMobile }) => {
+const FeatureCard = memo(({ feature, index, isMobile }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: isMobile ? 20 : 40 },
     visible: {
@@ -31,12 +30,12 @@ const FeatureCard = memo(({ feature, index, isInView, isMobile }) => {
   };
 
   // Simplified hover props for mobile
-  const hoverProps = useMemo(() => isMobile ? {} : {
+  const hoverProps = isMobile ? {} : {
     whileHover: { 
       y: -8, 
       boxShadow: `0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px ${feature.color}20`,
     }
-  }, [isMobile, feature.color]);
+  };
 
   return (
     <motion.article
@@ -107,20 +106,13 @@ const Features = () => {
     setCurrentCard(index);
   };
 
-  const features = useMemo(() => [
+  const features = [
     {
       icon: Bluetooth,
       title: 'Bluetooth Proximity Discovery',
       description: 'Radius finds people nearby using Bluetooth LE technology — no GPS required. See who\'s close, who\'s nearby, and who\'s just in range. Location is only used for SOS Nearby Help.',
       color: '#8B5CF6',
       gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)',
-    },
-    {
-      icon: Gamepad2,
-      title: 'Radius Guess Me Game',
-      description: 'Start anonymous conversations with nearby Radius users. Chat, connect, and try to guess who they are before revealing identities.',
-      color: '#F472B6',
-      gradient: 'linear-gradient(135deg, #F472B6 0%, #EC4899 100%)',
     },
     {
       icon: MessageCircle,
@@ -171,9 +163,9 @@ const Features = () => {
       color: '#EF4444',
       gradient: 'linear-gradient(135deg, #EF4444 0%, #F87171 100%)',
     },
-  ], []);
+  ];
 
-  const containerVariants = useMemo(() => ({
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -181,13 +173,13 @@ const Features = () => {
         staggerChildren: isMobile ? 0 : 0.1,
       },
     },
-  }), [isMobile]);
+  };
 
   return (
     <section id="features" className="features-section" ref={ref} aria-labelledby="features-title" itemScope itemType="https://schema.org/ItemList">
       <meta itemProp="name" content="Radius App Features" />
       <meta itemProp="description" content="Complete list of Radius social discovery app features" />
-      <meta itemProp="numberOfItems" content="9" />
+      <meta itemProp="numberOfItems" content="8" />
       <div className="container">
         <motion.header
           className="features-header"
@@ -220,7 +212,6 @@ const Features = () => {
                 key={feature.title}
                 feature={feature}
                 index={index}
-                isInView={isInView}
                 isMobile={isMobile}
               />
             ))}

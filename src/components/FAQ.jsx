@@ -22,10 +22,6 @@ const FAQ = () => {
       answer: 'Radius can detect users within approximately 10 meters (about 30 feet). The Radius app categorizes proximity as "Very close" (0-1m), "Nearby" (1-3m), and "Far" (3-10m) based on Bluetooth signal strength.',
     },
     {
-      question: 'What is the "Guess Me" game in Radius?',
-      answer: 'Guess Me is an anonymous icebreaker game unique to Radius where you can chat with a nearby user without knowing who they are. You try to guess each other\'s identity through conversation. If you both enjoy the chat, you can reveal yourselves and connect! It\'s one of the most popular Radius features.',
-    },
-    {
       question: 'What are Random Group Chatrooms in Radius?',
       answer: 'Random Group Chatrooms are internet-based groups in Radius organized by topics and interests. Users can create groups or request to join existing ones. Group admins review and approve join requests to maintain quality discussions. It\'s perfect for finding like-minded people worldwide using Radius!',
     },
@@ -43,7 +39,7 @@ const FAQ = () => {
     },
     {
       question: 'Is Radius app free to use?',
-      answer: 'Yes! Radius is completely free to download and use. All core Radius features including discovery, messaging, groups, and the Guess Me game are available at no cost. Download Radius free on iOS and Android.',
+      answer: 'Yes! Radius is completely free to download and use. All core Radius features including discovery, messaging, and groups are available at no cost. Download Radius free on iOS and Android.',
     },
     {
       question: 'Does Radius work without internet?',

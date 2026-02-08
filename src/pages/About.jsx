@@ -105,8 +105,8 @@ const About = () => {
           </p>
           <p>
             You can send connection requests to users you're interested in connecting with. Once both 
-            parties accept, you can start chatting, join groups together, or participate in features 
-            like our popular Guess Me game — an anonymous icebreaker that makes starting conversations fun.
+            parties accept, you can start chatting, join groups together, or explore various features 
+            designed to make meeting new people enjoyable and natural.
           </p>
           <p>
             Beyond one-on-one connections, Radius offers location-based groups for your city, 

@@ -97,7 +97,7 @@ const Terms = () => {
               <li>Use Radius to discover and connect with people nearby</li>
               <li>Send messages, photos, and other content to your connections</li>
               <li>Join and participate in groups</li>
-              <li>Use features like Guess Me game and Nearby Help</li>
+              <li>Use features like Nearby Help for emergency assistance</li>
               <li>Share content that is legal and respectful</li>
             </ul>
 
