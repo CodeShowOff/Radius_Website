@@ -32,6 +32,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Disable smooth scroll on mobile — it fights with native touch scrolling */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--background);
@@ -117,6 +130,14 @@ img {
 
 .glow-secondary {
   filter: drop-shadow(0 0 20px var(--glow-secondary));
+}
+
+/* Disable filter-based glows on mobile */
+@media (max-width: 768px) {
+  .glow,
+  .glow-secondary {
+    filter: none;
+  }
 }
 
 /* Glass Effect */

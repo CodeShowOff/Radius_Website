@@ -49,7 +49,7 @@ const Hero = () => {
 
   // Nearby people positions for the 3D animation - evenly distributed
   const nearbyPeople = [
-    { id: 1, angle: -90, distance: 140, delay: 0.5, color: '#8B5CF6' },   // Top
+    { id: 1, angle: -90, distance: 140, delay: 0.5, color: '#3B82F6' },   // Top
     { id: 2, angle: -30, distance: 135, delay: 0.7, color: '#06B6D4' },   // Top-right
     { id: 3, angle: 30, distance: 140, delay: 0.9, color: '#F472B6' },    // Bottom-right
     { id: 4, angle: 150, distance: 135, delay: 1.1, color: '#10B981' },   // Bottom-left
@@ -314,15 +314,6 @@ const Hero = () => {
                 <div className="animation-platform">
                   {/* Curved connection lines from center to nearby people */}
                   <svg className="connection-svg" viewBox="0 0 420 380">
-                    <defs>
-                      <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge>
-                          <feMergeNode in="coloredBlur"/>
-                          <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                      </filter>
-                    </defs>
                     {nearbyPeople.map((person) => {
                       const centerX = 210;
                       const centerY = 200;
@@ -333,20 +324,15 @@ const Hero = () => {
                       const midY = (centerY + endY) / 2 - 40;
                       
                       return (
-                        <motion.path
+                        <path
                           key={`line-${person.id}`}
                           d={`M ${centerX} ${centerY} Q ${midX} ${midY} ${endX} ${endY}`}
                           stroke={person.color}
-                          strokeWidth="3"
+                          strokeWidth="2.5"
                           fill="none"
                           strokeLinecap="round"
-                          filter="url(#glow)"
-                          initial={{ opacity: 0, pathLength: 0 }}
-                          animate={{ opacity: 0.8, pathLength: 1 }}
-                          transition={{ 
-                            opacity: { delay: person.delay + 0.8, duration: 0.3 },
-                            pathLength: { delay: person.delay + 0.8, duration: 0.5, ease: 'easeOut' }
-                          }}
+                          opacity="0.7"
+                          strokeDasharray="6 4"
                         />
                       );
                     })}
@@ -360,12 +346,7 @@ const Hero = () => {
                   </div>
 
                   {/* Center Person (You) */}
-                  <motion.div 
-                    className="person-3d center-person"
-                    initial={{ scale: 0, y: 20 }}
-                    animate={{ scale: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
+                  <div className="person-3d center-person">
                     <div className="person-body">
                       <div className="person-head">
                         <div className="person-face"></div>
@@ -380,12 +361,8 @@ const Hero = () => {
                         <div className="person-leg right" />
                       </div>
                     </div>
-                    {/* Bluetooth Icon above head — static on mobile */}
-                    <div className="bluetooth-indicator">
-                      <Bluetooth size={18} />
-                    </div>
                     <span className="person-label">You</span>
-                  </motion.div>
+                  </div>
 
                   {/* Nearby People */}
                   {nearbyPeople.map((person) => {
@@ -393,16 +370,13 @@ const Hero = () => {
                     const y = Math.sin((person.angle * Math.PI) / 180) * person.distance * 0.6;
                     
                     return (
-                      <motion.div
+                      <div
                         key={person.id}
                         className="person-3d nearby-person"
                         style={{
                           left: `calc(50% + ${x}px)`,
-                          top: `calc(53% + ${y}px)`,
+                          top: `calc(50% + ${y}px)`,
                         }}
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: person.delay + 0.3 }}
                       >
                         <div className="person-body small" style={{ '--person-color': person.color }}>
                           <div className="person-head">
@@ -414,7 +388,7 @@ const Hero = () => {
                             <div className="person-leg right" />
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                     );
                   })}
 

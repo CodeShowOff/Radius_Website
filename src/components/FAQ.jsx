@@ -52,7 +52,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="faq-section" ref={ref} aria-labelledby="faq-title" itemScope itemType="https://schema.org/FAQPage">
+    <section id="faq" className="faq-section" ref={ref} aria-labelledby="faq-title">
       <div className="container">
         <motion.header
           className="faq-header"
@@ -86,9 +86,6 @@ const FAQ = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 * index }}
                 role="listitem"
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
               >
                 <button
                   className="faq-question"
@@ -96,7 +93,7 @@ const FAQ = () => {
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span itemProp="name">{faq.question}</span>
+                  <span>{faq.question}</span>
                   <motion.div
                     className="faq-icon"
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
@@ -115,11 +112,8 @@ const FAQ = () => {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
                     >
-                      <p itemProp="text">{faq.answer}</p>
+                      <p>{faq.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
