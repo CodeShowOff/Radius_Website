@@ -124,6 +124,18 @@
   gap: 6px;
 }
 
+.made-with .developer-link {
+  color: var(--primary-light);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.made-with .developer-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 .made-with .heart {
   color: #EF4444;
   animation: heartbeat 1.5s ease infinite;

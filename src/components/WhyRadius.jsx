@@ -47,7 +47,7 @@ const WhyRadius = () => {
   const stats = [
     { value: 100, suffix: '%', label: 'Privacy Protected' },
     { value: 1, suffix: '', label: 'Feature Uses GPS' },
-    { value: 8, suffix: '+', label: 'Core Features' },
+    { value: 9, suffix: '+', label: 'Core Features' },
     { value: 3, suffix: '', label: 'Group Types' },
   ];
 
@@ -154,39 +154,6 @@ const WhyRadius = () => {
             </motion.article>
           ))}
         </div>
-
-        {/* Comparison Section */}
-        <motion.aside
-          className="comparison-section"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          aria-label="Comparison between Radius and other apps"
-        >
-          <div className="comparison-card other">
-            <h4>Other Social Apps</h4>
-            <ul>
-              <li><span className="x" aria-hidden="true">✕</span> Track your GPS location</li>
-              <li><span className="x" aria-hidden="true">✕</span> Algorithm decides who you see</li>
-              <li><span className="x" aria-hidden="true">✕</span> Data sold to advertisers</li>
-              <li><span className="x" aria-hidden="true">✕</span> Fake profiles & bots</li>
-              <li><span className="x" aria-hidden="true">✕</span> Match with people miles away</li>
-            </ul>
-          </div>
-          <div className="comparison-divider" aria-hidden="true">
-            <span>VS</span>
-          </div>
-          <div className="comparison-card radius">
-            <h4>Radius App</h4>
-            <ul>
-              <li><span className="check" aria-hidden="true">✓</span> Bluetooth discovery, GPS only for SOS</li>
-              <li><span className="check" aria-hidden="true">✓</span> You choose who to connect with</li>
-              <li><span className="check" aria-hidden="true">✓</span> Your data stays private</li>
-              <li><span className="check" aria-hidden="true">✓</span> Real people, verified nearby</li>
-              <li><span className="check" aria-hidden="true">✓</span> Connect with people right here</li>
-            </ul>
-          </div>
-        </motion.aside>
       </div>
     </section>
   );

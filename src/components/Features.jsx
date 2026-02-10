@@ -11,7 +11,8 @@ import {
   Bell,
   Globe,
   BluetoothSearching,
-  HandHeart
+  HandHeart,
+  Shuffle
 } from 'lucide-react';
 import './Features.css';
 
@@ -150,6 +151,13 @@ const Features = () => {
       gradient: 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
     },
     {
+      icon: Shuffle,
+      title: 'Random Chat Discovery',
+      description: 'Get up to 10 random user suggestions daily. Send requests, chat one-on-one, and build new connections. Everything resets at midnight for fresh opportunities.',
+      color: '#F472B6',
+      gradient: 'linear-gradient(135deg, #F472B6 0%, #FCA5A5 100%)',
+    },
+    {
       icon: HandHeart,
       title: 'Radius Nearby Help',
       description: 'SOS feature using location for emergency assistance. Request or provide help to people nearby. Set home/work locations to get notified when someone needs help in your area.',
@@ -179,7 +187,7 @@ const Features = () => {
     <section id="features" className="features-section" ref={ref} aria-labelledby="features-title" itemScope itemType="https://schema.org/ItemList">
       <meta itemProp="name" content="Radius App Features" />
       <meta itemProp="description" content="Complete list of Radius social discovery app features" />
-      <meta itemProp="numberOfItems" content="8" />
+      <meta itemProp="numberOfItems" content="9" />
       <div className="container">
         <motion.header
           className="features-header"

@@ -50,8 +50,8 @@ const Contact = () => {
             <p>
               For general inquiries, support, partnerships, or any questions about Radius
             </p>
-            <a href="mailto:radius.codeshowoff@gmail.com" className="contact-link">
-              radius.codeshowoff@gmail.com
+            <a href="mailto:support@radiusapp.tech" className="contact-link">
+              support@radiusapp.tech
             </a>
           </div>
 

@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 import './FAQ.css';
 
@@ -7,6 +7,18 @@ const FAQ = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [openIndex, setOpenIndex] = useState(0);
+  const prefersReduced = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', checkMobile, { passive: true });
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const shouldAnimate = !isMobile && !prefersReduced;
 
   const faqs = [
     {
@@ -28,6 +40,10 @@ const FAQ = () => {
     {
       question: 'How do Nearby Groups work in Radius app?',
       answer: 'Nearby Groups in Radius use Bluetooth to create temporary group chats for spontaneous meetups. When you create a nearby group, your device automatically detects and adds Radius users around you. Perfect for events, gatherings, or any situation where you want to chat with everyone nearby!',
+    },
+    {
+      question: 'What is Random Chat in Radius?',
+      answer: 'Random Chat is a daily discovery feature in Radius where you receive up to 10 random user suggestions each day. You can send connection requests to people you\'re interested in chatting with. Once someone accepts, you can have one-on-one conversations. You can have one active Random Chat connection per day, and everything resets at midnight for fresh opportunities!',
     },
     {
       question: 'What is Nearby Help feature in Radius?',
@@ -82,9 +98,9 @@ const FAQ = () => {
               <motion.article
                 key={index}
                 className={`faq-item ${openIndex === index ? 'open' : ''}`}
-                initial={{ opacity: 0, y: 20 }}
+                initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.1 * index }}
+                transition={shouldAnimate ? { delay: 0.05 * index } : { duration: 0 }}
                 role="listitem"
               >
                 <button
@@ -94,29 +110,21 @@ const FAQ = () => {
                   aria-controls={`faq-answer-${index}`}
                 >
                   <span>{faq.question}</span>
-                  <motion.div
-                    className="faq-icon"
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                  <div
+                    className={`faq-icon ${openIndex === index ? 'rotated' : ''}`}
                     aria-hidden="true"
                   >
                     <ChevronDown size={20} />
-                  </motion.div>
+                  </div>
                 </button>
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      id={`faq-answer-${index}`}
-                      className="faq-answer"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <p>{faq.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div
+                  id={`faq-answer-${index}`}
+                  className="faq-answer"
+                >
+                  <div className="faq-answer-content">
+                    <p>{faq.answer}</p>
+                  </div>
+                </div>
               </motion.article>
             ))}
           </div>
@@ -138,10 +146,10 @@ const FAQ = () => {
                 is here to help you.
               </p>
               <motion.a
-                href="mailto:support@radius.app"
+                href="mailto:support@radiusapp.tech"
                 className="contact-btn"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={shouldAnimate ? { scale: 1.05 } : {}}
+                whileTap={shouldAnimate ? { scale: 0.95 } : {}}
                 aria-label="Email Radius support team"
               >
                 Contact Radius Support

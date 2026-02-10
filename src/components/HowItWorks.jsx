@@ -4,7 +4,7 @@ import React from 'react';
 import { 
   UserPlus, Globe, MessageCircle, Users, Sparkles, 
   Bluetooth, MapPin, BluetoothSearching,
-  HandHeart, Shield, Image, Mic
+  HandHeart, Shield, Image, Mic, Shuffle
 } from 'lucide-react';
 import './HowItWorks.css';
 
@@ -104,6 +104,18 @@ const HowItWorks = () => {
         'Perfect for events and gatherings',
       ],
       description: 'Create spontaneous groups that automatically add people around you.'
+    },
+    {
+      icon: Shuffle,
+      title: 'Random Chat',
+      color: '#F472B6',
+      steps: [
+        'Receive up to 10 random user suggestions daily',
+        'Send connection requests to people you like',
+        'Chat one-on-one when they accept',
+        'Resets at midnight for fresh opportunities',
+      ],
+      description: 'Daily random discovery for spontaneous connections. One active chat per day.'
     },
     {
       icon: HandHeart,

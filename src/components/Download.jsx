@@ -82,10 +82,9 @@ const DownloadSection = () => {
             >
               <Apple size={28} aria-hidden="true" />
               <div className="store-text">
-                <span>Download Radius on the</span>
                 <strong>App Store</strong>
               </div>
-              <span className="coming-soon-badge">Coming Soon</span>
+              <span className="coming-soon-badge">COMING SOON</span>
             </motion.div>
 
             <motion.div
@@ -97,10 +96,9 @@ const DownloadSection = () => {
             >
               <Play size={28} fill="currentColor" aria-hidden="true" />
               <div className="store-text">
-                <span>Get Radius on</span>
                 <strong>Google Play</strong>
               </div>
-              <span className="coming-soon-badge">Coming Soon</span>
+              <span className="coming-soon-badge">COMING SOON</span>
             </motion.div>
           </div>
 

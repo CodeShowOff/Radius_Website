@@ -97,10 +97,10 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p className="copyright">
-            © {currentYear} Radius App. All rights reserved. | <strong>Radius</strong> - Meet People Around You
+            © {currentYear} Radius App. All rights reserved.
           </p>
           <p className="made-with">
-            Made with <Heart size={14} className="heart" aria-label="love" /> for real connections
+            Developed by <a href="https://github.com/CodeShowOff" target="_blank" rel="noopener noreferrer" className="developer-link">CodeShowOff</a>
           </p>
         </div>
       </div>
