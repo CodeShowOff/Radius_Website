@@ -8,11 +8,23 @@ import './App.css'
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Blog = lazy(() => import('./pages/Blog'))
+const BlogPostBluetooth = lazy(() => import('./pages/BlogPostBluetooth'))
+const BlogPostComparison = lazy(() => import('./pages/BlogPostComparison'))
+const BlogPostNearbyGroups = lazy(() => import('./pages/BlogPostNearbyGroups'))
+const BlogPostGettingStarted = lazy(() => import('./pages/BlogPostGettingStarted'))
+const BlogPostNearbyHelp = lazy(() => import('./pages/BlogPostNearbyHelp'))
+const BlogPostRandomChat = lazy(() => import('./pages/BlogPostRandomChat'))
+const BlogPostLocationGroups = lazy(() => import('./pages/BlogPostLocationGroups'))
 const Careers = lazy(() => import('./pages/Careers'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Privacy = lazy(() => import('./pages/Privacy'))
 const Terms = lazy(() => import('./pages/Terms'))
 const Cookies = lazy(() => import('./pages/Cookies'))
+const DownloadPage = lazy(() => import('./pages/DownloadPage'))
+const FeaturesPage = lazy(() => import('./pages/FeaturesPage'))
+const HowItWorksPage = lazy(() => import('./pages/HowItWorksPage'))
+const NearbyGroupsPage = lazy(() => import('./pages/NearbyGroupsPage'))
+const FAQPage = lazy(() => import('./pages/FAQPage'))
 const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
@@ -25,7 +37,7 @@ function App() {
 
   useEffect(() => {
     // Update page title dynamically for better SEO signals
-    document.title = 'Radius Connect | Social Discovery App - Connect, Chat & Build Community';
+    document.title = 'Radius App - Meet People Nearby | Best Privacy Social App & Bluetooth Social Network';
     
     // Add dynamic structured data for real-time updates
     const updateStructuredData = () => {
@@ -38,19 +50,19 @@ function App() {
       script.textContent = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Radius Connect - Social Discovery App",
-        "description": "Radius Connect is the #1 privacy-first social discovery app. Connect with people nearby, join communities, and build relationships.",
+        "name": "Radius App - Best Privacy Focused Social App",
+        "description": "Radius App is the #1 best privacy focused social app and bluetooth proximity social network. Meet people nearby without location tracking. Download Radius social app free iOS Android with nearby connections, nearby groups, and anonymous chat.",
         "url": window.location.href,
         "dateModified": new Date().toISOString(),
         "inLanguage": "en-US",
         "isPartOf": {
           "@type": "WebSite",
-          "name": "Radius",
-          "url": "https://radiusconnect.tech"
+          "name": "Radius App",
+          "url": "https://radiusapp.tech"
         },
         "about": {
           "@type": "SoftwareApplication",
-          "name": "Radius",
+          "name": "Radius App",
           "applicationCategory": "SocialNetworkingApplication"
         }
       });
@@ -71,8 +83,20 @@ function App() {
         <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/download" element={<DownloadPage />} />
+            <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/nearby-groups" element={<NearbyGroupsPage />} />
+            <Route path="/faq" element={<FAQPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/getting-started" element={<BlogPostGettingStarted />} />
+            <Route path="/blog/bluetooth-privacy" element={<BlogPostBluetooth />} />
+            <Route path="/blog/radius-vs-dating-apps" element={<BlogPostComparison />} />
+            <Route path="/blog/nearby-groups" element={<BlogPostNearbyGroups />} />
+            <Route path="/blog/nearby-help" element={<BlogPostNearbyHelp />} />
+            <Route path="/blog/random-chat" element={<BlogPostRandomChat />} />
+            <Route path="/blog/location-groups" element={<BlogPostLocationGroups />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
