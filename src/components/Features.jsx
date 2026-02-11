@@ -195,10 +195,9 @@ const Features = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: isMobile ? 0.3 : 0.6 }}
         >
-          <span className="section-label">Radius App Features</span>
+          <span className="section-label">Discover What's Possible</span>
           <h2 id="features-title" className="section-title">
-            Everything Radius offers for
-            <span className="gradient-text"> meaningful connections</span>
+            Explore <span className="gradient-text">Features</span>
           </h2>
           <p className="section-description mobile-hidden">
             From <strong>Bluetooth nearby discovery</strong> to global communities, from one-on-one chats to group discussions,
