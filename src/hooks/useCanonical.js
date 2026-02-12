@@ -101,4 +101,26 @@ export const usePageMeta = ({ title, description, keywords, image }) => {
   }, [title, description, keywords, image]);
 };
 
+/**
+ * Custom hook to add structured data (JSON-LD) for SEO
+ */
+export const useStructuredData = (structuredData) => {
+  useEffect(() => {
+    if (!structuredData) return;
+
+    // Create script element for structured data
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-structured-data', 'true');
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Cleanup function
+    return () => {
+      const existingScripts = document.querySelectorAll('script[data-structured-data="true"]');
+      existingScripts.forEach(s => s.remove());
+    };
+  }, [structuredData]);
+};
+
 export default useCanonical;

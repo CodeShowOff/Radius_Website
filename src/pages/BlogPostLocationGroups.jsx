@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Building2, GraduationCap, Home, Coffee, Briefcase, Users, Shield, Check, ArrowLeft, Sparkles, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostLocationGroups = () => {
@@ -11,62 +11,53 @@ const BlogPostLocationGroups = () => {
     description: 'Master Location-Based Groups on Radius. Learn how to join and create persistent community groups for your campus, building, neighborhood, workplace, and favorite venues.',
     keywords: 'radius location groups, campus groups, neighborhood groups, community groups, building groups'
   });
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Use Radius Location-Based Groups",
-      "description": "Complete guide to joining and creating location-specific community groups on Radius",
-      "image": "https://radiusapp.tech/blog-location-groups-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Radius Location-Based Groups",
+    "description": "Complete guide to joining and creating location-specific community groups on Radius",
+    "image": "https://radiusapp.tech/blog-location-groups-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Discover Local Groups",
+        "text": "Browse location-based groups in your area"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
+      {
+        "@type": "HowToStep",
+        "name": "Join Communities",
+        "text": "Join groups for your building, campus, or neighborhood"
       },
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Discover Local Groups",
-          "text": "Browse location-based groups in your area"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Join Communities",
-          "text": "Join groups for your building, campus, or neighborhood"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Participate Actively",
-          "text": "Engage with community members and organize meetups"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Create Your Own Group",
-          "text": "Start a new location-based community for your venue"
-        }
-      ],
-      "keywords": "location groups, community building, campus groups, neighborhood app, building community, local connections, Radius groups",
-      "articleSection": "Community",
-      "wordCount": 2800
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+      {
+        "@type": "HowToStep",
+        "name": "Participate Actively",
+        "text": "Engage with community members and organize meetups"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Create Your Own Group",
+        "text": "Start a new location-based community for your venue"
+      }
+    ],
+    "keywords": "location groups, community building, campus groups, neighborhood app, building community, local connections, Radius groups",
+    "articleSection": "Community",
+    "wordCount": 2800
+  });
 
   return (
     <div className="page-container">

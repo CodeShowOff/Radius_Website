@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MessageCircle, Globe, Sparkles, Users, Shield, Zap, Check, ArrowLeft, Heart, Smile, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostRandomChat = () => {
@@ -11,62 +11,53 @@ const BlogPostRandomChat = () => {
     description: 'Master Radius Random Chat to connect with people worldwide. Learn how to join global chatrooms, use interest filters, stay safe, and make meaningful connections through anonymous group conversations.',
     keywords: 'radius random chat, global chat, anonymous chat, radius chatrooms, worldwide connections'
   });
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Use Radius Random Chat Feature",
-      "description": "Complete guide to using Radius Random Chat for global connections and group conversations",
-      "image": "https://radiusapp.tech/blog-random-chat-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Radius Random Chat Feature",
+    "description": "Complete guide to using Radius Random Chat for global connections and group conversations",
+    "image": "https://radiusapp.tech/blog-random-chat-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Access Random Chat",
+        "text": "Navigate to the Random Chat section in Radius app"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
+      {
+        "@type": "HowToStep",
+        "name": "Choose Your Interests",
+        "text": "Select topics or interests to match with like-minded people"
       },
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Access Random Chat",
-          "text": "Navigate to the Random Chat section in Radius app"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose Your Interests",
-          "text": "Select topics or interests to match with like-minded people"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Join a Chatroom",
-          "text": "Enter a random group chat and start conversations"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Connect and Engage",
-          "text": "Participate in discussions and make new connections"
-        }
-      ],
-      "keywords": "Random Chat, group chat, anonymous chat, global connections, interest-based chat, Radius chatrooms, social discovery",
-      "articleSection": "Features",
-      "wordCount": 2700
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+      {
+        "@type": "HowToStep",
+        "name": "Join a Chatroom",
+        "text": "Enter a random group chat and start conversations"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Connect and Engage",
+        "text": "Participate in discussions and make new connections"
+      }
+    ],
+    "keywords": "Random Chat, group chat, anonymous chat, global connections, interest-based chat, Radius chatrooms, social discovery",
+    "articleSection": "Features",
+    "wordCount": 2700
+  });
 
   return (
     <div className="page-container">

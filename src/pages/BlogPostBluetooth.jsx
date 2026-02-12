@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Bluetooth, Shield, Lock, Radio, Users, Zap, Check, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostBluetooth = () => {
@@ -11,41 +11,31 @@ const BlogPostBluetooth = () => {
     description: 'Discover how Radius App leverages Bluetooth Low Energy (BLE) technology to create a privacy-first social discovery platform. Learn about proximity detection, anonymous broadcasting, and why Bluetooth is the future of social networking.',
     keywords: 'bluetooth privacy, BLE technology, radius bluetooth, proximity detection, private social networking'
   });
-
-    // Add structured data for blog post
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "How Radius Uses Bluetooth for Privacy-First Social Discovery",
-      "description": "An in-depth look at how Radius leverages Bluetooth Low Energy technology to create a privacy-focused social discovery platform",
-      "image": "https://radiusapp.tech/blog-bluetooth-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
-      },
-      "keywords": "Bluetooth Low Energy, BLE, privacy-first social networking, proximity detection, anonymous networking, Radius App, social discovery",
-      "articleSection": "Technology",
-      "wordCount": 2500
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How Radius Uses Bluetooth for Privacy-First Social Discovery",
+    "description": "An in-depth look at how Radius leverages Bluetooth Low Energy technology to create a privacy-focused social discovery platform",
+    "image": "https://radiusapp.tech/blog-bluetooth-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "keywords": "Bluetooth Low Energy, BLE, privacy-first social networking, proximity detection, anonymous networking, Radius App, social discovery",
+    "articleSection": "Technology",
+    "wordCount": 2500
+  });
 
   return (
     <div className="page-container">

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { AlertCircle, Heart, Shield, Zap, MapPin, Users, Bell, Check, ArrowLeft, Radio, Camera, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostNearbyHelp = () => {
@@ -11,62 +11,53 @@ const BlogPostNearbyHelp = () => {
     description: 'Learn how to use Radius Nearby Help feature to request and provide assistance in emergencies. Complete guide to SOS alerts, safety features, and community-driven help.',
     keywords: 'radius help, radius sos, emergency help, nearby help, community assistance'
   });
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Use Radius Nearby Help (SOS) Feature",
-      "description": "Complete guide to requesting and providing help through Radius's proximity-based emergency assistance feature",
-      "image": "https://radiusapp.tech/blog-nearby-help-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Radius Nearby Help (SOS) Feature",
+    "description": "Complete guide to requesting and providing help through Radius's proximity-based emergency assistance feature",
+    "image": "https://radiusapp.tech/blog-nearby-help-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Access Nearby Help",
+        "text": "Open Radius and navigate to the Nearby Help section"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
+      {
+        "@type": "HowToStep",
+        "name": "Choose Help Type",
+        "text": "Select the type of assistance you need"
       },
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Access Nearby Help",
-          "text": "Open Radius and navigate to the Nearby Help section"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose Help Type",
-          "text": "Select the type of assistance you need"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Send Alert",
-          "text": "Broadcast your help request to nearby users"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Connect with Helpers",
-          "text": "Communicate with people who respond to your request"
-        }
-      ],
-      "keywords": "Radius SOS, nearby help, emergency assistance, community help, safety feature, proximity alert, emergency broadcast",
-      "articleSection": "Safety",
-      "wordCount": 2900
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+      {
+        "@type": "HowToStep",
+        "name": "Send Alert",
+        "text": "Broadcast your help request to nearby users"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Connect with Helpers",
+        "text": "Communicate with people who respond to your request"
+      }
+    ],
+    "keywords": "Radius SOS, nearby help, emergency assistance, community help, safety feature, proximity alert, emergency broadcast",
+    "articleSection": "Safety",
+    "wordCount": 2900
+  });
 
   return (
     <div className="page-container">

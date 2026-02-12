@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Heart, MapPin, Shield, Users, Zap, TrendingUp, Check, X, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostComparison = () => {
@@ -11,40 +11,31 @@ const BlogPostComparison = () => {
     description: 'Discover why proximity-based connections through Bluetooth create more authentic relationships than traditional dating apps. Compare Radius with GPS-based dating platforms and learn why real-world proximity matters for meaningful connections.',
     keywords: 'radius vs dating apps, proximity dating, bluetooth dating, radius comparison, authentic connections'
   });
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Radius vs. Traditional Dating Apps: Why Proximity Matters",
-      "description": "A comprehensive comparison between Radius's proximity-based approach and traditional dating apps, exploring why real-world closeness leads to better connections",
-      "image": "https://radiusapp.tech/blog-comparison-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
-      },
-      "keywords": "dating apps comparison, proximity dating, Bluetooth dating, location-based dating, authentic connections, Radius vs Tinder, privacy dating apps",
-      "articleSection": "Relationships",
-      "wordCount": 2800
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Radius vs. Traditional Dating Apps: Why Proximity Matters",
+    "description": "A comprehensive comparison between Radius's proximity-based approach and traditional dating apps, exploring why real-world closeness leads to better connections",
+    "image": "https://radiusapp.tech/blog-comparison-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "keywords": "dating apps comparison, proximity dating, Bluetooth dating, location-based dating, authentic connections, Radius vs Tinder, privacy dating apps",
+    "articleSection": "Relationships",
+    "wordCount": 2800
+  });
 
   return (
     <div className="page-container">

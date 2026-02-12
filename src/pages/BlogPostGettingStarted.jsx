@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Rocket, Download, Settings, Users, MessageCircle, Shield, Check, ArrowLeft, AlertCircle, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostGettingStarted = () => {
@@ -10,64 +10,55 @@ const BlogPostGettingStarted = () => {
     title: 'Getting Started with Radius: A Complete Guide | Radius App Blog',
     description: 'Complete beginner\'s guide to Radius App. Learn how to set up your profile, enable discovery mode, make connections, join groups, and use all features safely and effectively.',
     keywords: 'radius guide, getting started radius, how to use radius, radius tutorial, radius app setup'
-  });}
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "Getting Started with Radius: A Complete Guide",
-      "description": "Comprehensive beginner's guide to using Radius App for proximity-based social discovery",
-      "image": "https://radiusapp.tech/blog-getting-started-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
+  });
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Getting Started with Radius: A Complete Guide",
+    "description": "Comprehensive beginner's guide to using Radius App for proximity-based social discovery",
+    "image": "https://radiusapp.tech/blog-getting-started-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "totalTime": "PT10M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Download and Install",
+        "text": "Download Radius from the App Store or Google Play Store"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
+      {
+        "@type": "HowToStep",
+        "name": "Create Your Account",
+        "text": "Sign up and set up your profile"
       },
-      "totalTime": "PT10M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Download and Install",
-          "text": "Download Radius from the App Store or Google Play Store"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Create Your Account",
-          "text": "Sign up and set up your profile"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Enable Permissions",
-          "text": "Grant Bluetooth and notification permissions"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Start Discovering",
-          "text": "Enable discovery mode and start finding people nearby"
-        }
-      ],
-      "keywords": "Radius tutorial, Radius guide, getting started, how to use Radius, Radius setup, proximity social app tutorial",
-      "articleSection": "Guides",
-      "wordCount": 3000
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+      {
+        "@type": "HowToStep",
+        "name": "Enable Permissions",
+        "text": "Grant Bluetooth and notification permissions"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Start Discovering",
+        "text": "Enable discovery mode and start finding people nearby"
+      }
+    ],
+    "keywords": "Radius tutorial, Radius guide, getting started, how to use Radius, Radius setup, proximity social app tutorial",
+    "articleSection": "Guides",
+    "wordCount": 3000
+  });
 
   return (
     <div className="page-container">

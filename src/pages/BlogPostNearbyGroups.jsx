@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Users, Calendar, MessageCircle, Bell, Star, Check, ArrowLeft, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCanonical, usePageMeta } from '../hooks/useCanonical';
+import { useCanonical, usePageMeta, useStructuredData } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostNearbyGroups = () => {
@@ -11,62 +11,53 @@ const BlogPostNearbyGroups = () => {
     description: 'Master Radius Nearby Groups to connect with people at events, festivals, conferences, and local gatherings. Learn how to create, join, and manage location-based groups for authentic connections.',
     keywords: 'radius nearby groups, event groups, local groups, proximity groups, create radius groups'
   });
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Use Radius Nearby Groups for Events",
-      "description": "Step-by-step guide to using Radius Nearby Groups feature for events, meetups, and local gatherings",
-      "image": "https://radiusapp.tech/blog-nearby-groups-cover.png",
-      "datePublished": "2026-02-11",
-      "dateModified": "2026-02-11",
-      "author": {
-        "@type": "Organization",
-        "name": "Radius App"
+  
+  useStructuredData({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Radius Nearby Groups for Events",
+    "description": "Step-by-step guide to using Radius Nearby Groups feature for events, meetups, and local gatherings",
+    "image": "https://radiusapp.tech/blog-nearby-groups-cover.png",
+    "datePublished": "2026-02-11",
+    "dateModified": "2026-02-11",
+    "author": {
+      "@type": "Organization",
+      "name": "Radius App"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Radius App",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://radiusapp.tech/logo.png"
+      }
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Enable Discovery Mode",
+        "text": "Open Radius and enable discovery mode to start detecting nearby users"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Radius App",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://radiusapp.tech/logo.png"
-        }
+      {
+        "@type": "HowToStep",
+        "name": "Browse Nearby Groups",
+        "text": "Navigate to the Groups tab to see location-based groups in your vicinity"
       },
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Enable Discovery Mode",
-          "text": "Open Radius and enable discovery mode to start detecting nearby users"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Browse Nearby Groups",
-          "text": "Navigate to the Groups tab to see location-based groups in your vicinity"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Join or Create a Group",
-          "text": "Join existing groups or create your own event-specific group"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Connect with Members",
-          "text": "Chat with group members and coordinate meetups"
-        }
-      ],
-      "keywords": "Radius groups, nearby groups, event networking, location-based groups, meetup app, social events",
-      "articleSection": "Guides",
-      "wordCount": 2600
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) existingScript.remove();
-    };
-  }, []);
+      {
+        "@type": "HowToStep",
+        "name": "Join or Create a Group",
+        "text": "Join existing groups or create your own event-specific group"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Connect with Members",
+        "text": "Chat with group members and coordinate meetups"
+      }
+    ],
+    "keywords": "Radius groups, nearby groups, event networking, location-based groups, meetup app, social events",
+    "articleSection": "Guides",
+    "wordCount": 2600
+  });
 
   return (
     <div className="page-container">
