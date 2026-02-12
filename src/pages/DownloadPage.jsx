@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
 import Download from '../components/Download'
+import { useCanonical, usePageMeta } from '../hooks/useCanonical'
 import '../components/Download.css'
 import './PageStyles.css'
 
 function DownloadPage() {
-  useEffect(() => {
-    document.title = 'Download Radius App Free - iOS & Android | Best Privacy Social App'
-    document.querySelector('meta[name="description"]')?.setAttribute(
-      'content',
-      'Download Radius App free on iOS and Android. The best privacy focused social app to meet people nearby without location tracking. Get Radius social app now - bluetooth proximity social network with nearby groups and anonymous chat.'
-    )
-  }, [])
+  useCanonical('/download')
+  usePageMeta({
+    title: 'Download Radius App Free - iOS & Android | Best Privacy Social App',
+    description: 'Download Radius App free on iOS and Android. The best privacy focused social app to meet people nearby without location tracking. Get Radius social app now - bluetooth proximity social network with nearby groups and anonymous chat.',
+    keywords: 'download radius app, radius app free, radius ios download, radius android download, get radius app, install radius'
+  })
 
   return (
     <div className="page-container" itemScope itemType="https://schema.org/WebPage">

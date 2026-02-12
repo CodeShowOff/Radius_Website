@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, Github, Twitter, Instagram, MapPin } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const Contact = () => {
+  useCanonical('/contact');
+  usePageMeta({
+    title: 'Contact Radius - Get in Touch | Radius App Support',
+    description: 'Contact Radius App support team. Get help, report issues, or share feedback about the privacy-focused social discovery app.',
+    keywords: 'contact radius, radius support, radius help, get in touch, customer service'
+  });
   return (
     <div className="page-container">
       <motion.div 

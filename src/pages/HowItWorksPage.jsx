@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
 import HowItWorks from '../components/HowItWorks'
+import { useCanonical, usePageMeta } from '../hooks/useCanonical'
 import '../components/HowItWorks.css'
 import './PageStyles.css'
 
 function HowItWorksPage() {
-  useEffect(() => {
-    document.title = 'How to Meet People Nearby Without Location Tracking | Radius App'
-    document.querySelector('meta[name="description"]')?.setAttribute(
-      'content',
-      'Learn how to meet people nearby without location tracking using Radius App. Our bluetooth proximity social network lets you connect anonymously. Step-by-step guide to the best privacy focused social app.'
-    )
-  }, [])
+  useCanonical('/how-it-works')
+  usePageMeta({
+    title: 'How to Meet People Nearby Without Location Tracking | Radius App',
+    description: 'Learn how to meet people nearby without location tracking using Radius App. Our bluetooth proximity social network lets you connect anonymously. Step-by-step guide to the best privacy focused social app.',
+    keywords: 'how radius works, meet people nearby, bluetooth social network, location privacy, proximity chat'
+  })
 
   return (
     <div className="page-container" itemScope itemType="https://schema.org/HowTo">

@@ -2,6 +2,7 @@ import { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import { useCanonical } from './hooks/useCanonical'
 import './App.css'
 
 // Lazy load pages
@@ -29,6 +30,9 @@ const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   const location = useLocation();
+
+  // Dynamically update canonical URL for each route
+  useCanonical();
 
   useEffect(() => {
     // Scroll to top on route change

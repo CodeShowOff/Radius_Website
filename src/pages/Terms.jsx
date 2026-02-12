@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { FileText, AlertCircle, Users, MessageCircle, Shield, CheckCircle } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const Terms = () => {
+  useCanonical('/terms');
+  usePageMeta({
+    title: 'Terms of Service - Radius App',
+    description: 'Terms of Service for Radius App - the privacy-focused social discovery app. Read our terms and conditions for using the bluetooth proximity social network.',
+    keywords: 'radius terms, terms of service, user agreement, social app terms'
+  });
   return (
     <div className="page-container legal-page">
       <motion.div 

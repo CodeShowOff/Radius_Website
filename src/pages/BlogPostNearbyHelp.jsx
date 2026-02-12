@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AlertCircle, Heart, Shield, Zap, MapPin, Users, Bell, Check, ArrowLeft, Radio, Camera, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostNearbyHelp = () => {
-  useEffect(() => {
-    document.title = 'How to Use Radius Nearby Help (SOS) Feature | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Learn how to use Radius Nearby Help feature to request and provide assistance in emergencies. Complete guide to SOS alerts, safety features, and community-driven help.');
-    }
+  useCanonical('/blog/nearby-help');
+  usePageMeta({
+    title: 'How to Use Radius Nearby Help (SOS) Feature | Radius App Blog',
+    description: 'Learn how to use Radius Nearby Help feature to request and provide assistance in emergencies. Complete guide to SOS alerts, safety features, and community-driven help.',
+    keywords: 'radius help, radius sos, emergency help, nearby help, community assistance'
+  });
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';

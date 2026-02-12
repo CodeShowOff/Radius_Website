@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Shield, Eye, Lock, Database, UserCheck, Bell } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const Privacy = () => {
+  useCanonical('/privacy');
+  usePageMeta({
+    title: 'Privacy Policy - Radius App | Privacy-First Social Network',
+    description: 'Read Radius App privacy policy - learn how we protect your data as a privacy-first social network. No location tracking, secure bluetooth connections, and transparent data practices.',
+    keywords: 'radius privacy policy, privacy social app, data protection, bluetooth privacy, secure social network'
+  });
   return (
     <div className="page-container legal-page">
       <motion.div 

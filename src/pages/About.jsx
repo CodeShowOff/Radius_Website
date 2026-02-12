@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
 import { Radio, Heart, Shield, Users, Bluetooth, Sparkles } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const About = () => {
+  useCanonical('/about');
+  usePageMeta({
+    title: 'About Radius - Privacy-First Social Discovery App',
+    description: 'Learn about Radius, the privacy-focused social app that uses Bluetooth technology to help you connect with people nearby without location tracking.',
+    keywords: 'about radius, radius story, privacy social app, bluetooth social network, meet people nearby app'
+  });
+
   return (
     <div className="page-container">
       <motion.div 

@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
 import FAQ from '../components/FAQ'
+import { useCanonical, usePageMeta } from '../hooks/useCanonical'
 import '../components/FAQ.css'
 import './PageStyles.css'
 
 function FAQPage() {
-  useEffect(() => {
-    document.title = 'FAQ - Frequently Asked Questions | Radius App'
-    document.querySelector('meta[name="description"]')?.setAttribute(
-      'content',
-      'Frequently asked questions about Radius App - the best privacy focused social app. Learn how to meet people nearby without location tracking, bluetooth social network features, nearby groups, and more.'
-    )
-  }, [])
+  useCanonical('/faq')
+  usePageMeta({
+    title: 'FAQ - Frequently Asked Questions | Radius App',
+    description: 'Frequently asked questions about Radius App - the best privacy focused social app. Learn how to meet people nearby without location tracking, bluetooth social network features, nearby groups, and more.',
+    keywords: 'radius faq, radius questions, how does radius work, radius app help, social app questions'
+  })
 
   return (
     <div className="page-container" itemScope itemType="https://schema.org/FAQPage">

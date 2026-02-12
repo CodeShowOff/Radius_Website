@@ -1,14 +1,13 @@
-import { useEffect } from 'react'
+import { useCanonical, usePageMeta } from '../hooks/useCanonical'
 import './PageStyles.css'
 
 function NearbyGroupsPage() {
-  useEffect(() => {
-    document.title = 'Nearby Groups - Create Local Group Chats | Radius App'
-    document.querySelector('meta[name="description"]')?.setAttribute(
-      'content',
-      'Create nearby groups with Radius App - the bluetooth social network for instant local group chats. Meet people nearby without location tracking. Best nearby connections app for events and communities.'
-    )
-  }, [])
+  useCanonical('/nearby-groups')
+  usePageMeta({
+    title: 'Nearby Groups - Create Local Group Chats | Radius App',
+    description: 'Create nearby groups with Radius App - the bluetooth social network for instant local group chats. Meet people nearby without location tracking. Best nearby connections app for events and communities.',
+    keywords: 'nearby groups, local group chat, bluetooth groups, proximity group chat, nearby connections'
+  })
 
   return (
     <div className="page-container" itemScope itemType="https://schema.org/WebPage">

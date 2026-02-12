@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Building2, GraduationCap, Home, Coffee, Briefcase, Users, Shield, Check, ArrowLeft, Sparkles, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostLocationGroups = () => {
-  useEffect(() => {
-    document.title = 'How to Use Radius Location-Based Groups | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Master Location-Based Groups on Radius. Learn how to join and create persistent community groups for your campus, building, neighborhood, workplace, and favorite venues.');
-    }
+  useCanonical('/blog/location-groups');
+  usePageMeta({
+    title: 'How to Use Radius Location-Based Groups | Radius App Blog',
+    description: 'Master Location-Based Groups on Radius. Learn how to join and create persistent community groups for your campus, building, neighborhood, workplace, and favorite venues.',
+    keywords: 'radius location groups, campus groups, neighborhood groups, community groups, building groups'
+  });
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';

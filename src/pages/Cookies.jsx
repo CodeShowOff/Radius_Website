@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Cookie, Info, Shield, Settings } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const Cookies = () => {
+  useCanonical('/cookies');
+  usePageMeta({
+    title: 'Cookie Policy - Radius App',
+    description: 'Learn about how Radius App uses cookies and similar technologies. Our cookie policy for the privacy-focused social discovery app.',
+    keywords: 'radius cookies, cookie policy, privacy cookies, website cookies'
+  });
   return (
     <div className="page-container legal-page">
       <motion.div 

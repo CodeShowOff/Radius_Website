@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, MapPin, Shield, Users, Zap, TrendingUp, Check, X, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostComparison = () => {
-  useEffect(() => {
-    document.title = 'Radius vs Traditional Dating Apps: Why Proximity Matters | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Discover why proximity-based connections through Bluetooth create more authentic relationships than traditional dating apps. Compare Radius with GPS-based dating platforms and learn why real-world proximity matters for meaningful connections.');
-    }
+  useCanonical('/blog/radius-vs-dating-apps');
+  usePageMeta({
+    title: 'Radius vs Traditional Dating Apps: Why Proximity Matters | Radius App Blog',
+    description: 'Discover why proximity-based connections through Bluetooth create more authentic relationships than traditional dating apps. Compare Radius with GPS-based dating platforms and learn why real-world proximity matters for meaningful connections.',
+    keywords: 'radius vs dating apps, proximity dating, bluetooth dating, radius comparison, authentic connections'
+  });
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';

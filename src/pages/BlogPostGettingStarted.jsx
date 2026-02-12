@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, Download, Settings, Users, MessageCircle, Shield, Check, ArrowLeft, AlertCircle, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostGettingStarted = () => {
-  useEffect(() => {
-    document.title = 'Getting Started with Radius: A Complete Guide | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Complete beginner\'s guide to Radius App. Learn how to set up your profile, enable discovery mode, make connections, join groups, and use all features safely and effectively.');
-    }
+  useCanonical('/blog/getting-started');
+  usePageMeta({
+    title: 'Getting Started with Radius: A Complete Guide | Radius App Blog',
+    description: 'Complete beginner\'s guide to Radius App. Learn how to set up your profile, enable discovery mode, make connections, join groups, and use all features safely and effectively.',
+    keywords: 'radius guide, getting started radius, how to use radius, radius tutorial, radius app setup'
+  });}
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';

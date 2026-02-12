@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Sparkles, Heart, Rocket } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const Careers = () => {
+  useCanonical('/careers');
+  usePageMeta({
+    title: 'Careers at Radius - Join Our Team | Radius App Jobs',
+    description: 'Join the Radius team and help build the future of privacy-focused social networking. Explore career opportunities at Radius App.',
+    keywords: 'radius careers, radius jobs, social app jobs, tech careers, join radius team'
+  });
   return (
     <div className="page-container">
       <motion.div 

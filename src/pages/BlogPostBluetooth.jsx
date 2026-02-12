@@ -1,18 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Bluetooth, Shield, Lock, Radio, Users, Zap, Check, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostBluetooth = () => {
-  useEffect(() => {
-    // Update page title and meta description for SEO
-    document.title = 'How Radius Uses Bluetooth for Privacy-First Social Discovery | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Discover how Radius App leverages Bluetooth Low Energy (BLE) technology to create a privacy-first social discovery platform. Learn about proximity detection, anonymous broadcasting, and why Bluetooth is the future of social networking.');
-    }
+  useCanonical('/blog/bluetooth-privacy');
+  usePageMeta({
+    title: 'How Radius Uses Bluetooth for Privacy-First Social Discovery | Radius App Blog',
+    description: 'Discover how Radius App leverages Bluetooth Low Energy (BLE) technology to create a privacy-first social discovery platform. Learn about proximity detection, anonymous broadcasting, and why Bluetooth is the future of social networking.',
+    keywords: 'bluetooth privacy, BLE technology, radius bluetooth, proximity detection, private social networking'
+  });
 
     // Add structured data for blog post
     const script = document.createElement('script');

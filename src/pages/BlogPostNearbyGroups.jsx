@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Users, Calendar, MessageCircle, Bell, Star, Check, ArrowLeft, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostNearbyGroups = () => {
-  useEffect(() => {
-    document.title = 'How to Use Radius Nearby Groups for Events | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Master Radius Nearby Groups to connect with people at events, festivals, conferences, and local gatherings. Learn how to create, join, and manage location-based groups for authentic connections.');
-    }
+  useCanonical('/blog/nearby-groups');
+  usePageMeta({
+    title: 'How to Use Radius Nearby Groups for Events | Radius App Blog',
+    description: 'Master Radius Nearby Groups to connect with people at events, festivals, conferences, and local gatherings. Learn how to create, join, and manage location-based groups for authentic connections.',
+    keywords: 'radius nearby groups, event groups, local groups, proximity groups, create radius groups'
+  });
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';

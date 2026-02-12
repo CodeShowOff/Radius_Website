@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
 import Features from '../components/Features'
+import { useCanonical, usePageMeta } from '../hooks/useCanonical'
 import '../components/Features.css'
 import './PageStyles.css'
 
 function FeaturesPage() {
-  useEffect(() => {
-    document.title = 'Radius App Features - Bluetooth Social Network | Privacy Social App'
-    document.querySelector('meta[name="description"]')?.setAttribute(
-      'content',
-      'Discover Radius App features - meet people nearby without location tracking, nearby groups, bluetooth proximity social network, anonymous chat with nearby strangers, and nearby help app. Best privacy focused social app.'
-    )
-  }, [])
+  useCanonical('/features')
+  usePageMeta({
+    title: 'Radius App Features - Bluetooth Social Network | Privacy Social App',
+    description: 'Discover Radius App features - meet people nearby without location tracking, nearby groups, bluetooth proximity social network, anonymous chat with nearby strangers, and nearby help app. Best privacy focused social app.',
+    keywords: 'radius features, bluetooth social network, nearby groups, nearby chat, proximity app, privacy social features'
+  })
 
   return (
     <div className="page-container" itemScope itemType="https://schema.org/WebPage">

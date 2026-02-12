@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Globe, Sparkles, Users, Shield, Zap, Check, ArrowLeft, Heart, Smile, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const BlogPostRandomChat = () => {
-  useEffect(() => {
-    document.title = 'How to Use Radius Random Chat Feature | Radius App Blog';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Master Radius Random Chat to connect with people worldwide. Learn how to join global chatrooms, use interest filters, stay safe, and make meaningful connections through anonymous group conversations.');
-    }
+  useCanonical('/blog/random-chat');
+  usePageMeta({
+    title: 'How to Use Radius Random Chat Feature | Radius App Blog',
+    description: 'Master Radius Random Chat to connect with people worldwide. Learn how to join global chatrooms, use interest filters, stay safe, and make meaningful connections through anonymous group conversations.',
+    keywords: 'radius random chat, global chat, anonymous chat, radius chatrooms, worldwide connections'
+  });
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';

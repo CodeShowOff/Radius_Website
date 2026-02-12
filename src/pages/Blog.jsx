@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, Clock, ArrowRight } from 'lucide-react';
+import { useCanonical, usePageMeta } from '../hooks/useCanonical';
 import './PageStyles.css';
 
 const Blog = () => {
+  useCanonical('/blog');
+  usePageMeta({
+    title: 'Radius Blog - Privacy Social App Tips & Community Stories',
+    description: 'Read the latest from Radius - tips for meeting people nearby, privacy-focused social networking, and real stories from our community.',
+    keywords: 'radius blog, social app tips, privacy social network, meet people nearby tips, bluetooth social app'
+  });
   const featuredPosts = [
     {
       title: "Getting Started with Radius: A Complete Guide",
