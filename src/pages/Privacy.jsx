@@ -65,7 +65,7 @@ const Privacy = () => {
 
             <h3>2. Automatically Collected Information</h3>
             <ul className="highlight-list">
-              <li><strong>Bluetooth Proximity Data:</strong> Signal strength and proximity information from nearby Radius users (this is NOT GPS location)</li>
+              <li><strong>Bluetooth Proximity Data:</strong> Signal strength and proximity information from nearby Radius users (this is NOT GPS location). By default, Bluetooth advertising runs while the app is open. An optional Background Advertising setting lets you stay discoverable after closing the app — this is off by default and fully under your control</li>
               <li><strong>Device Information:</strong> Device model, operating system, app version, unique device identifiers</li>
               <li><strong>Usage Data:</strong> Features you use, time spent in app, interaction patterns (to improve the app experience)</li>
               <li><strong>Push Notification Tokens:</strong> Device tokens to send you notifications (stored securely in Firebase)</li>
@@ -95,7 +95,7 @@ const Privacy = () => {
             
             <h3>Core App Functions</h3>
             <ul>
-              <li>Enable Bluetooth-based proximity discovery between users</li>
+              <li>Enable Bluetooth-based proximity discovery between users (by default while the app is open, or optionally in the background if you choose to enable it)</li>
               <li>Facilitate messaging and connections between users who mutually accept</li>
               <li>Create and manage user profiles visible to other Radius users</li>
               <li>Operate features like group chats and location-based groups</li>
@@ -128,7 +128,8 @@ const Privacy = () => {
             <p>
               Your public profile (name, photo, bio, interests) is visible to other authenticated 
               Radius users. Your proximity status is only visible to nearby users when you're 
-              actively using the app. Messages and content are shared with users you're connected with.
+              actively using the app, unless you have opted into the optional Background Advertising 
+              feature. Messages and content are shared with users you're connected with.
             </p>
 
             <h3>With Service Providers</h3>
@@ -185,6 +186,7 @@ const Privacy = () => {
             <h3>Access & Control</h3>
             <ul>
               <li><strong>Profile Management:</strong> Edit your profile information anytime in app settings</li>
+              <li><strong>Background Advertising:</strong> Choose whether to stay discoverable after closing the app (off by default)</li>
               <li><strong>Data Access:</strong> Request a copy of your data by contacting us</li>
               <li><strong>Data Deletion:</strong> Delete your account and associated data in app settings</li>
               <li><strong>Notification Control:</strong> Manage push notification preferences in settings</li>

@@ -61,7 +61,7 @@ function FAQPage() {
         "name": "How does the bluetooth social network work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our bluetooth proximity social network uses Bluetooth Low Energy (BLE) to detect other Radius users nearby. When Bluetooth is enabled, Radius broadcasts a secure signal that other devices can detect. This bluetooth social network technology allows you to meet people nearby without GPS tracking."
+          "text": "Our bluetooth proximity social network uses Bluetooth Low Energy (BLE) to detect other Radius users nearby. When Bluetooth is enabled, Radius broadcasts a secure signal that other devices can detect. By default this runs while the app is open. You can also enable an optional Background Advertising setting to stay discoverable after closing the app — it's off by default and fully under your control. This bluetooth social network technology allows you to meet people nearby without GPS tracking."
         }
       },
       {
@@ -192,7 +192,9 @@ function FAQPage() {
                 <p>
                   Our <strong>bluetooth proximity social network</strong> uses Bluetooth Low Energy (BLE) to detect other 
                   Radius users nearby. When Bluetooth is enabled, Radius broadcasts a secure signal that other devices can 
-                  detect. This bluetooth social network technology allows you to meet people nearby without GPS tracking.
+                  detect. By default this runs while the app is open, and you can optionally enable Background Advertising to stay 
+                  discoverable after closing the app — it's off by default and fully in your hands. This bluetooth social network 
+                  technology allows you to meet people nearby without GPS tracking.
                 </p>
               </div>
             </div>

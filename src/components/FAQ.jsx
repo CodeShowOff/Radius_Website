@@ -23,7 +23,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: 'How does Radius app find people nearby?',
-      answer: 'Radius uses Bluetooth Low Energy (BLE) technology to detect other Radius users in your vicinity. When your Bluetooth is on and the Radius app is open, it broadcasts a unique signal that other devices can detect. This allows you to see who\'s nearby without using GPS or sharing your location. Radius is the best app to meet people nearby using Bluetooth.',
+      answer: 'Radius uses Bluetooth Low Energy (BLE) technology to detect other Radius users in your vicinity. When your Bluetooth is on and the Radius app is open, it broadcasts a unique signal that other devices can detect. This allows you to see who\'s nearby without using GPS or sharing your location. You can also enable an optional Background Advertising setting to stay discoverable even after closing the app — it\'s off by default and entirely in your hands. Radius is the best app to meet people nearby using Bluetooth.',
     },
     {
       question: 'Is my location tracked by Radius?',
@@ -63,7 +63,7 @@ const FAQ = () => {
     },
     {
       question: 'How do I stop being discoverable on Radius?',
-      answer: 'You can turn off discovery anytime in your Radius settings. You can also simply close the Radius app or turn off Bluetooth. When discovery is off, other Radius users won\'t be able to see you. For Nearby Help, you can disable help alerts in Radius settings.',
+      answer: 'You can turn off discovery anytime in your Radius settings. You can also simply close the Radius app or turn off Bluetooth. If you have Background Advertising enabled, just toggle it off in Bluetooth Settings. When discovery is off, other Radius users won\'t be able to see you. For Nearby Help, you can disable help alerts in Radius settings.',
     },
   ];
 

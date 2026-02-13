@@ -186,6 +186,7 @@ const Terms = () => {
             </p>
             <ul>
               <li>We use Bluetooth for proximity detection, not GPS tracking</li>
+              <li>Background Advertising is optional and off by default — you decide if you want to stay discoverable after closing the app</li>
               <li>We never sell your data</li>
               <li>You control your profile visibility and data sharing</li>
               <li>Read our full Privacy Policy for details</li>
