@@ -134,8 +134,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Discover people nearby using Bluetooth, join communities worldwide,
-                and get emergency help when needed. Chat with rich media — all with privacy-first design.
+                Discover people nearby, join communities, and chat — privacy-first.
               </motion.p>
               
               {/* Hidden SEO text for search engines */}
