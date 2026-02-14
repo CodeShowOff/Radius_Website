@@ -202,6 +202,23 @@
   perspective: 1000px;
 }
 
+/* Desktop Lottie Animation */
+.desktop-lottie {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 .phone-mockup {
   position: relative;
 }

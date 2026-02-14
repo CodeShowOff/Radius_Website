@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Bluetooth, Users, Sparkles, ArrowRight, Download } from 'lucide-react';
+import { Users, ArrowRight, Download } from 'lucide-react';
 import Lottie from 'lottie-react';
 import './Hero.css';
 
@@ -33,11 +33,13 @@ const Hero = () => {
   
   // Load Lottie animation dynamically
   useEffect(() => {
-    fetch('/animations/hero-animation.json')
+    // Load mobile animation for both desktop and mobile
+    fetch('/animations/hero-animation-mobile.json')
       .then(response => response.json())
       .then(data => setAnimationData(data))
       .catch(err => console.warn('Lottie animation not found:', err));
   }, []);
+  
   const handleDownload = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isAndroid = /android/i.test(userAgent);
@@ -52,13 +54,6 @@ const Hero = () => {
       document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  const floatingIcons = [
-    { Icon: Bluetooth, delay: 0, x: -120, y: -80 },
-    { Icon: Users, delay: 0.2, x: 120, y: -60 },
-    { Icon: Sparkles, delay: 0.4, x: -100, y: 80 },
-  ];
-
 
   return (
     <section className="hero" itemScope itemType="https://schema.org/SoftwareApplication" aria-labelledby="hero-title">
@@ -209,94 +204,22 @@ const Hero = () => {
               </motion.div>
             </article>
 
-            {/* Desktop Visual - Phone Mockup */}
+            {/* Desktop Visual - Lottie Animation */}
             <div className="hero-visual desktop-visual">
-              <motion.div
-                className="phone-mockup"
-                initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
-                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-              >
-                <div className="phone-frame">
-                  <div className="phone-notch" />
-                  <div className="phone-screen">
-                    <div className="app-header">
-                      <span className="app-title">Nearby</span>
-                      <div className="app-icons">
-                        <div className="scan-indicator">
-                          <div className="scan-pulse" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="user-list">
-                      {['Sarah M.', 'Alex K.', 'Jordan T.', 'Riley P.'].map((name, i) => (
-                        <motion.div
-                          key={name}
-                          className="user-card"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.6 + i * 0.15 }}
-                        >
-                          <div className="user-avatar" style={{ background: ['#8B5CF6', '#06B6D4', '#F472B6', '#10B981'][i] }}>
-                            {name[0]}
-                          </div>
-                          <div className="user-info">
-                            <span className="user-name">{name}</span>
-                            <span className="user-distance">{['Very close', 'Nearby', 'Nearby', 'Far'][i]}</span>
-                          </div>
-                          <div className={`proximity-indicator ${['very-close', 'nearby', 'nearby', 'far'][i]}`}>
-                            <div className="dot" />
-                            <div className="dot" />
-                            <div className="dot" />
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Elements — desktop only, skip animation overhead on mobile */}
-                {!reduceAnimations && floatingIcons.map(({ Icon: IconComponent, delay, x, y }, index) => (
-                  <motion.div
-                    key={index}
-                    className="floating-icon"
-                    style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ 
-                      opacity: 1, 
-                      scale: 1,
-                      y: [0, -10, 0],
-                    }}
-                    transition={{ 
-                      opacity: { delay: delay + 0.5, duration: 0.4 },
-                      scale: { delay: delay + 0.5, duration: 0.4 },
-                      y: { delay: delay + 0.9, duration: 3, repeat: Infinity, ease: 'easeInOut' },
-                    }}
-                  >
-                    <IconComponent size={20} />
-                  </motion.div>
-                ))}
-
-                {/* Radar rings — desktop only */}
-                {!reduceAnimations && (
-                  <div className="radar-rings">
-                    {[1, 2, 3].map((i) => (
-                      <motion.div
-                        key={i}
-                        className="radar-ring"
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        animate={{ scale: [0.5, 1.5], opacity: [0.5, 0] }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          delay: i * 0.8,
-                          ease: 'easeOut',
-                        }}
-                      />
-                    ))}
-                  </div>
-                )}
-              </motion.div>
+              {animationData && (
+                <motion.div 
+                  className="lottie-container desktop-lottie"
+                  initial={{ opacity: 0, scale: 0.8, rotateY: -20, x: 40, y: -30 }}
+                  animate={{ opacity: 1, scale: 1.4, rotateY: 0, x: 40, y: -30 }}
+                  transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+                >
+                  <Lottie 
+                    animationData={animationData}
+                    loop={true}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </motion.div>
+              )}
             </div>
 
             {/* Mobile Visual - Lottie Animation */}
