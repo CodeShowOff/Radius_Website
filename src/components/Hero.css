@@ -542,39 +542,42 @@
     display: none;
   }
 
-  /* 3D People Animation Styles */
-  .people-animation-container {
+  /* Lottie Animation Container - Lightweight & Optimized */
+  .lottie-container {
     width: 100%;
-    max-width: 420px;
-    height: 450px;
-    position: relative;
-    margin: 0 auto 0 auto;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   /* Neon background text — static on mobile, no animated glow */
   .neon-background-text {
-    position: relative;
     width: 100%;
     text-align: center;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 5.5rem;
     font-weight: 900;
     letter-spacing: 0.2em;
-    color: rgba(139, 92, 246, 0.35);
+    color: rgba(109, 40, 217, 0.5);
     text-shadow: 
-      0 0 15px rgba(139, 92, 246, 0.7),
-      0 0 40px rgba(139, 92, 246, 0.5),
-      0 0 80px rgba(139, 92, 246, 0.3);
-    z-index: 0;
+      0 0 20px rgba(109, 40, 217, 0.8),
+      0 0 40px rgba(109, 40, 217, 0.6),
+      0 0 80px rgba(109, 40, 217, 0.4);
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
-    margin-bottom: 20px;
-    -webkit-text-stroke: 1.5px rgba(139, 92, 246, 0.4);
-    /* No animation — saves GPU on mobile */
+    margin: 20px auto 16px;
+    -webkit-text-stroke: 1.5px rgba(109, 40, 217, 0.5);
   }
 
   .animation-platform {
@@ -841,55 +844,13 @@
     margin-top: 0;
   }
 
-  .people-animation-container {
-    max-width: 360px;
-    height: 400px;
-    margin-bottom: 32px;
-  }
-
   .neon-background-text {
     font-size: 3.8rem;
+    margin: 16px auto 12px;
   }
 
-  .ground-plane {
-    width: 250px;
-    height: 150px;
-  }
-
-  .center-person .person-head {
-    width: 36px;
-    height: 36px;
-  }
-
-  .center-person .person-torso {
-    width: 40px;
-    height: 46px;
-  }
-
-  .center-person .person-arms {
-    top: 50px;
-    width: 82px;
-  }
-
-  .center-person .person-arm {
-    width: 12px;
-    height: 36px;
-  }
-
-  .center-person .person-leg {
-    width: 15px;
-    height: 40px;
-  }
-
-  .bluetooth-indicator {
-    width: 34px;
-    height: 34px;
-    top: -38px;
-  }
-
-  .bluetooth-indicator svg {
-    width: 18px;
-    height: 18px;
+  .lottie-container {
+    max-width: 320px;
   }
 }
 
@@ -897,12 +858,6 @@
   .hero-title {
     font-size: 1.4rem;
     margin-top: 0;
-  }
-
-  .people-animation-container {
-    max-width: 320px;
-    height: 360px;
-    margin-bottom: 28px;
   }
 
   .neon-background-text {
@@ -1055,10 +1010,5 @@
   .floating-icon,
   .radar-ring {
     will-change: auto;
-  }
-
-  /* Contain paint for mobile sections */
-  .people-animation-container {
-    contain: layout style paint;
   }
 }

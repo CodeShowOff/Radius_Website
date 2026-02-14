@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Bluetooth, Users, Sparkles, ArrowRight, Download } from 'lucide-react';
+import Lottie from 'lottie-react';
 import './Hero.css';
 
 const useIsMobile = () => {
@@ -26,6 +27,17 @@ const Hero = () => {
   const isMobile = useIsMobile();
   const prefersReduced = useReducedMotion();
   const reduceAnimations = isMobile || prefersReduced;
+  
+  // State for Lottie animation
+  const [animationData, setAnimationData] = useState(null);
+  
+  // Load Lottie animation dynamically
+  useEffect(() => {
+    fetch('/animations/hero-animation.json')
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(err => console.warn('Lottie animation not found:', err));
+  }, []);
   const handleDownload = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isAndroid = /android/i.test(userAgent);
@@ -47,14 +59,6 @@ const Hero = () => {
     { Icon: Sparkles, delay: 0.4, x: -100, y: 80 },
   ];
 
-  // Nearby people positions for the 3D animation - evenly distributed
-  const nearbyPeople = [
-    { id: 1, angle: -90, distance: 140, delay: 0.5, color: '#3B82F6' },   // Top
-    { id: 2, angle: -30, distance: 135, delay: 0.7, color: '#06B6D4' },   // Top-right
-    { id: 3, angle: 30, distance: 140, delay: 0.9, color: '#F472B6' },    // Bottom-right
-    { id: 4, angle: 150, distance: 135, delay: 1.1, color: '#10B981' },   // Bottom-left
-    { id: 5, angle: -150, distance: 140, delay: 1.3, color: '#F59E0B' },  // Top-left
-  ];
 
   return (
     <section className="hero" itemScope itemType="https://schema.org/SoftwareApplication" aria-labelledby="hero-title">
@@ -295,107 +299,25 @@ const Hero = () => {
               </motion.div>
             </div>
 
-            {/* Mobile Visual - 3D People Animation */}
+            {/* Mobile Visual - Lottie Animation */}
             <div className="hero-visual mobile-visual">
-              <motion.p 
-                className="mobile-hero-description"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-              >
-                Connect locally and globally through secure, privacy-first social networking.
-              </motion.p>
+              {/* Neon background text */}
+              <div className="neon-background-text" aria-hidden="true">RADIUS</div>
               
-              <div className="people-animation-container">
-                {/* Neon background text */}
-                <div className="neon-background-text" aria-hidden="true">RADIUS</div>
-                
-                {/* 3D Platform */}
-                <div className="animation-platform">
-                  {/* Curved connection lines from center to nearby people */}
-                  <svg className="connection-svg" viewBox="0 0 420 380">
-                    {nearbyPeople.map((person) => {
-                      const centerX = 210;
-                      const centerY = 200;
-                      const endX = centerX + Math.cos((person.angle * Math.PI) / 180) * person.distance;
-                      const endY = centerY + Math.sin((person.angle * Math.PI) / 180) * person.distance * 0.6;
-                      
-                      const midX = (centerX + endX) / 2;
-                      const midY = (centerY + endY) / 2 - 40;
-                      
-                      return (
-                        <path
-                          key={`line-${person.id}`}
-                          d={`M ${centerX} ${centerY} Q ${midX} ${midY} ${endX} ${endY}`}
-                          stroke={person.color}
-                          strokeWidth="2.5"
-                          fill="none"
-                          strokeLinecap="round"
-                          opacity="0.7"
-                          strokeDasharray="6 4"
-                        />
-                      );
-                    })}
-                  </svg>
-
-                  {/* Scanning rings — use CSS animation, not JS */}
-                  <div className="scan-rings">
-                    {[1, 2, 3].map((ring) => (
-                      <div key={ring} className="scan-ring" />
-                    ))}
-                  </div>
-
-                  {/* Center Person (You) */}
-                  <div className="person-3d center-person">
-                    <div className="person-body">
-                      <div className="person-head">
-                        <div className="person-face"></div>
-                      </div>
-                      <div className="person-torso"></div>
-                      <div className="person-arms">
-                        <div className="person-arm left" />
-                        <div className="person-arm right" />
-                      </div>
-                      <div className="person-legs">
-                        <div className="person-leg left" />
-                        <div className="person-leg right" />
-                      </div>
-                    </div>
-                    <span className="person-label">You</span>
-                  </div>
-
-                  {/* Nearby People */}
-                  {nearbyPeople.map((person) => {
-                    const x = Math.cos((person.angle * Math.PI) / 180) * person.distance;
-                    const y = Math.sin((person.angle * Math.PI) / 180) * person.distance * 0.6;
-                    
-                    return (
-                      <div
-                        key={person.id}
-                        className="person-3d nearby-person"
-                        style={{
-                          left: `calc(50% + ${x}px)`,
-                          top: `calc(50% + ${y}px)`,
-                        }}
-                      >
-                        <div className="person-body small" style={{ '--person-color': person.color }}>
-                          <div className="person-head">
-                            <div className="person-face"></div>
-                          </div>
-                          <div className="person-torso"></div>
-                          <div className="person-legs">
-                            <div className="person-leg left" />
-                            <div className="person-leg right" />
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  {/* Ground shadow */}
-                  <div className="ground-plane"></div>
-                </div>
-              </div>
+              {animationData && (
+                <motion.div 
+                  className="lottie-container"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  <Lottie 
+                    animationData={animationData}
+                    loop={true}
+                    style={{ width: '100%', height: '100%', maxWidth: '400px' }}
+                  />
+                </motion.div>
+              )}
             </div>
           </div>
         </div>
