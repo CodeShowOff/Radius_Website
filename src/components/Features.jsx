@@ -1,14 +1,12 @@
-import { useRef, useEffect, useState, memo } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { 
   Bluetooth, 
   MessageCircle, 
   Users, 
   Shield, 
   MapPin,
-  Mic,
-  Image,
-  Bell,
   Globe,
   BluetoothSearching,
   HandHeart,
@@ -16,342 +14,210 @@ import {
 } from 'lucide-react';
 import './Features.css';
 
-// Memoized feature card to prevent re-renders
-const FeatureCard = memo(({ feature, index, isMobile }) => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: isMobile ? 20 : 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: isMobile ? 0.3 : 0.5,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  // Simplified hover props for mobile
-  const hoverProps = isMobile ? {} : {
-    whileHover: { 
-      y: -8, 
-      boxShadow: `0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px ${feature.color}20`,
-    }
-  };
-
-  return (
-    <motion.article
-      className="feature-card"
-      variants={cardVariants}
-      {...hoverProps}
-      role="listitem"
-      itemScope
-      itemType="https://schema.org/ListItem"
-      itemProp="itemListElement"
-    >
-      <meta itemProp="position" content={String(index + 1)} />
-      <div 
-        className="feature-icon"
-        style={{ background: feature.gradient }}
-        aria-hidden="true"
-      >
-        <feature.icon size={24} />
-      </div>
-      <h3 className="feature-title" itemProp="name">{feature.title}</h3>
-      <p className="feature-description" itemProp="description">{feature.description}</p>
-      
-      {!isMobile && <div className="feature-glow" style={{ background: feature.color }} aria-hidden="true" />}
-    </motion.article>
-  );
-});
-
-FeatureCard.displayName = 'FeatureCard';
-
 const Features = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
-  );
-  const [currentCard, setCurrentCard] = useState(0);
-  
-  useEffect(() => {
-    let rafId;
-    const check = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => setIsMobile(window.innerWidth <= 768));
-    };
-    window.addEventListener('resize', check, { passive: true });
-    return () => {
-      window.removeEventListener('resize', check);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
-
-  const handleDragEnd = (event, info) => {
-    const threshold = 50;
-    const velocity = info.velocity.x;
-    const offset = info.offset.x;
-
-    if (Math.abs(velocity) > 500 || Math.abs(offset) > threshold) {
-      if (velocity < 0 || offset < 0) {
-        // Swipe left - next card
-        setCurrentCard(prev => Math.min(prev + 1, features.length - 1));
-      } else {
-        // Swipe right - previous card
-        setCurrentCard(prev => Math.max(prev - 1, 0));
-      }
-    }
-  };
-
-  const goToCard = (index) => {
-    setCurrentCard(index);
-  };
+  const [activeFeature, setActiveFeature] = useState(0);
 
   const features = [
     {
       icon: Bluetooth,
-      title: 'Bluetooth Proximity Discovery',
-      description: 'Radius finds people nearby using Bluetooth LE technology — no GPS required. See who\'s close, who\'s nearby, and who\'s just in range. Location is only used for SOS Nearby Help.',
+      title: 'Proximity Discovery',
       color: '#8B5CF6',
-      gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)',
+      steps: [
+        'Enable Bluetooth on your device',
+        'Open Radius to start broadcasting',
+        'View nearby users sorted by distance',
+        'Send connection request to anyone',
+      ],
+      description: 'Bluetooth LE detects nearby Radius users within 10m \u2014 no GPS needed.'
     },
     {
       icon: MessageCircle,
-      title: 'Rich Messaging in Radius',
-      description: 'Send texts, voice messages, images, stickers, and documents. Full-featured Radius chat with read receipts and push notifications.',
+      title: 'Rich Messaging',
       color: '#06B6D4',
-      gradient: 'linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%)',
-    },
-    {
-      icon: Users,
-      title: 'Mutual Consent Connections',
-      description: 'Both Radius users must accept to form a connection. No unwanted messages, no spam — just genuine interactions.',
-      color: '#10B981',
-      gradient: 'linear-gradient(135deg, #10B981 0%, #34D399 100%)',
+      steps: [
+        'Send text messages instantly',
+        'Record and share voice messages',
+        'Share photos, stickers, documents',
+        'Get read receipts and notifications',
+      ],
+      description: 'Full-featured chat with everything you need for meaningful conversations.'
     },
     {
       icon: MapPin,
-      title: 'Location-Based Radius Groups',
-      description: 'Join Radius community groups anchored to your city or region. Find local events, discussions, and like-minded people.',
+      title: 'Location Groups',
       color: '#F59E0B',
-      gradient: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
+      steps: [
+        'Browse groups in your city or region',
+        'Request to join existing groups',
+        'Participate in local discussions',
+        'Discover community events',
+      ],
+      description: 'Join location-based communities to connect with people in your area.'
     },
     {
       icon: Globe,
       title: 'Random Group Chatrooms',
-      description: 'Create or discover internet-based Radius groups by topic. Admin-approved membership ensures quality discussions with like-minded people worldwide.',
       color: '#8B5CF6',
-      gradient: 'linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%)',
+      steps: [
+        'Create a group with name & topic',
+        'Set description and rules',
+        'Review join requests as admin',
+        'Build quality discussions',
+      ],
+      description: 'Internet-based groups by interests with admin-approved membership.'
     },
     {
       icon: BluetoothSearching,
-      title: 'Radius Nearby Groups',
-      description: 'Create temporary Bluetooth-based Radius groups for spontaneous meetups. Members automatically join when detected nearby — perfect for events or gatherings.',
+      title: 'Nearby Groups',
       color: '#3B82F6',
-      gradient: 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
+      steps: [
+        'Create a temporary Bluetooth group',
+        'Device scans for nearby users',
+        'Members auto-join when detected',
+        'Perfect for events and gatherings',
+      ],
+      description: 'Spontaneous groups that automatically add people around you.'
     },
     {
       icon: Shuffle,
-      title: 'Random Chat Discovery',
-      description: 'Get up to 10 random user suggestions daily. Send requests, chat one-on-one, and build new connections. Everything resets at midnight for fresh opportunities.',
+      title: 'Random Chat',
       color: '#F472B6',
-      gradient: 'linear-gradient(135deg, #F472B6 0%, #FCA5A5 100%)',
+      steps: [
+        'Receive up to 10 random suggestions daily',
+        'Send requests to people you like',
+        'Chat one-on-one when they accept',
+        'Resets at midnight for fresh matches',
+      ],
+      description: 'Daily random discovery for spontaneous connections.'
     },
     {
       icon: HandHeart,
-      title: 'Radius Nearby Help',
-      description: 'SOS feature using location for emergency assistance. Request or provide help to people nearby. Set home/work locations to get notified when someone needs help in your area.',
+      title: 'Nearby Help',
       color: '#EC4899',
-      gradient: 'linear-gradient(135deg, #EC4899 0%, #F472B6 100%)',
+      steps: [
+        'Set your home/work locations',
+        'Request help when needed',
+        'Nearby users get notified',
+        'Helpers can navigate to you',
+      ],
+      description: 'SOS using GPS for emergencies \u2014 the only feature that uses location.'
     },
     {
       icon: Shield,
-      title: 'Privacy First Design',
-      description: 'Radius uses Bluetooth for proximity discovery — no GPS tracking. Location is only used for Nearby Help (SOS) feature. We never sell your data.',
+      title: 'Privacy Controls',
       color: '#EF4444',
-      gradient: 'linear-gradient(135deg, #EF4444 0%, #F87171 100%)',
+      steps: [
+        'Toggle discovery on/off anytime',
+        'Control who can message you',
+        'Disable help alerts in settings',
+        'GPS only for SOS Nearby Help',
+      ],
+      description: 'Complete control over your visibility and data.'
+    },
+    {
+      icon: Users,
+      title: 'Mutual Consent',
+      color: '#10B981',
+      steps: [
+        'Both users must accept to connect',
+        'No unwanted messages or spam',
+        'Groups have admin approval',
+        'Block or report at any time',
+      ],
+      description: 'All connections require acceptance from both sides.'
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: isMobile ? 0 : 0.1,
-      },
-    },
-  };
-
   return (
-    <section id="features" className="features-section" ref={ref} aria-labelledby="features-title" itemScope itemType="https://schema.org/ItemList">
-      <meta itemProp="name" content="Radius App Features" />
-      <meta itemProp="description" content="Complete list of Radius social discovery app features" />
-      <meta itemProp="numberOfItems" content="9" />
+    <section id="features" className="features-section" ref={ref} aria-labelledby="features-title">
       <div className="container">
         <motion.header
           className="features-header"
-          initial={{ opacity: 0, y: isMobile ? 15 : 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: isMobile ? 0.3 : 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <span className="section-label">Discover What's Possible</span>
           <h2 id="features-title" className="section-title">
             Explore <span className="gradient-text">Features</span>
           </h2>
-          <p className="section-description mobile-hidden">
-            From <strong>Bluetooth nearby discovery</strong> to global communities, from one-on-one chats to group discussions,
-            <strong> Radius social app</strong> offers a complete social experience that respects your privacy.
-          </p>
         </motion.header>
 
-        {/* Desktop: Grid Layout */}
-        {!isMobile && (
-          <motion.div
-            className="features-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            role="list"
-          >
-            {features.map((feature, index) => (
-              <FeatureCard
-                key={feature.title}
-                feature={feature}
-                index={index}
-                isMobile={isMobile}
-              />
-            ))}
-          </motion.div>
-        )}
-
-        {/* Mobile: Tinder-style Swiper */}
-        {isMobile && (
-          <div className="features-swiper" role="list">
-            <div className="swiper-container">
-              <motion.div
-                className="swiper-cards"
-                animate={{ x: `-${currentCard * 100}%` }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              >
-                {features.map((feature, index) => (
-                  <motion.article
-                    key={feature.title}
-                    className="feature-card-swiper"
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.7}
-                    onDragEnd={handleDragEnd}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 0.1, duration: 0.3 }}
-                    role="listitem"
-                    itemScope
-                    itemType="https://schema.org/ListItem"
-                    itemProp="itemListElement"
-                  >
-                    <meta itemProp="position" content={String(index + 1)} />
-                    <div 
-                      className="feature-icon"
-                      style={{ background: feature.gradient }}
-                      aria-hidden="true"
-                    >
-                      <feature.icon size={28} />
-                    </div>
-                    <h3 className="feature-title" itemProp="name">{feature.title}</h3>
-                    <p className="feature-description" itemProp="description">{feature.description}</p>
-                    
-                    <div className="swiper-card-number">
-                      {index + 1} / {features.length}
-                    </div>
-                  </motion.article>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Swipe Navigation Dots */}
-            <div className="swiper-dots">
-              {features.map((_, index) => (
+        <motion.div
+          className="feature-explorer"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="explorer-container">
+            <div className="explorer-tabs">
+              {features.map((feature, index) => (
                 <button
-                  key={index}
-                  className={`swiper-dot ${currentCard === index ? 'active' : ''}`}
-                  onClick={() => goToCard(index)}
-                  aria-label={`Go to feature ${index + 1}`}
+                  key={feature.title}
+                  className={`explorer-tab ${activeFeature === index ? 'active' : ''}`}
+                  onClick={() => setActiveFeature(index)}
                   style={{
-                    background: currentCard === index ? features[index].color : 'var(--border)',
+                    borderColor: activeFeature === index ? feature.color : 'transparent',
                   }}
-                />
+                >
+                  <feature.icon size={18} style={{ color: feature.color }} />
+                  <span>{feature.title}</span>
+                </button>
               ))}
             </div>
 
-            {/* Swipe Hint */}
-            {currentCard === 0 && (
+            <AnimatePresence mode="wait">
               <motion.div
-                className="swipe-hint"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
+                key={activeFeature}
+                className="explorer-content"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
               >
-                <span>← Swipe to explore →</span>
-              </motion.div>
-            )}
-          </div>
-        )}
+                <div className="explorer-header">
+                  <div 
+                    className="explorer-icon"
+                    style={{ 
+                      background: `linear-gradient(135deg, ${features[activeFeature].color}30 0%, ${features[activeFeature].color}10 100%)`,
+                    }}
+                  >
+                    {React.createElement(features[activeFeature].icon, { 
+                      size: 32, 
+                      style: { color: features[activeFeature].color } 
+                    })}
+                  </div>
+                  <div>
+                    <h4>{features[activeFeature].title}</h4>
+                    <p>{features[activeFeature].description}</p>
+                  </div>
+                </div>
 
-        {/* Feature Highlight */}
-        <motion.aside
-          className="feature-highlight"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          aria-label="Radius messaging features highlight"
-        >
-          <div className="highlight-content">
-            <h3>Full-Featured Radius Chat Experience</h3>
-            <p>
-              Everything you expect from a modern messenger in <strong>Radius app</strong>, designed for spontaneous connections.
-            </p>
-            <div className="highlight-features">
-              <div className="highlight-item">
-                <Mic size={18} aria-hidden="true" />
-                <span>Voice Messages</span>
-              </div>
-              <div className="highlight-item">
-                <Image size={18} aria-hidden="true" />
-                <span>Photo Sharing</span>
-              </div>
-              <div className="highlight-item">
-                <Bell size={18} aria-hidden="true" />
-                <span>Push Notifications</span>
-              </div>
-            </div>
-          </div>
-          <div className="highlight-visual" aria-hidden="true">
-            <div className="chat-preview">
-              <div className="chat-bubble sent">
-                <span>Hey! I think I saw you at the coffee shop 👋</span>
-              </div>
-              <div className="chat-bubble received">
-                <span>Haha yeah! The one on Main Street?</span>
-              </div>
-              <div className="chat-bubble sent">
-                <span>Yes! Want to grab a coffee sometime?</span>
-              </div>
-              <motion.div 
-                className="chat-bubble received typing"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ delay: 1 }}
-              >
-                <div className="typing-indicator">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                <div className="explorer-steps">
+                  <h5>How it works:</h5>
+                  {features[activeFeature].steps.map((step, index) => (
+                    <motion.div
+                      key={index}
+                      className="explorer-step"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div 
+                        className="explorer-step-number"
+                        style={{ background: features[activeFeature].color }}
+                      >
+                        {index + 1}
+                      </div>
+                      <span>{step}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
-            </div>
+            </AnimatePresence>
           </div>
-        </motion.aside>
+        </motion.div>
       </div>
     </section>
   );

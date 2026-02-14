@@ -55,32 +55,38 @@ const WhyRadius = () => {
     {
       icon: Shield,
       title: 'Privacy First',
-      description: 'Bluetooth for proximity discovery — no GPS tracking. Location only used for Nearby Help (SOS) feature. You control your visibility.',
+      description: 'Bluetooth discovery — no GPS tracking. Location only for SOS.',
+
     },
     {
       icon: Globe,
       title: 'Multiple Discovery Modes',
-      description: 'Find people nearby, join global interest groups, or create location-based communities.',
+      description: 'Nearby people, global groups, or location-based communities.',
+
     },
     {
       icon: Lock,
       title: 'Mutual Consent',
-      description: 'All connections require acceptance. Groups have admin approval. No spam.',
+      description: 'All connections require acceptance. No spam.',
+
     },
     {
       icon: Zap,
       title: 'Full-Featured Messaging',
-      description: 'Texts, voice messages, photos, stickers, and documents. Everything you need to communicate.',
+      description: 'Texts, voice, photos, stickers, and documents.',
+
     },
     {
       icon: Heart,
       title: 'Community Focused',
-      description: 'Help nearby users, join group discussions, and build real relationships through meaningful interactions.',
+      description: 'Help nearby users and join group discussions.',
+
     },
     {
       icon: Eye,
       title: 'Flexible & Fun',
-      description: 'Serious groups or casual chats. Direct connections or community discussions. Your choice.',
+      description: 'Serious groups or casual chats — your choice.',
+
     },
   ];
 
@@ -122,12 +128,8 @@ const WhyRadius = () => {
         >
           <span className="section-label">Why Choose Radius</span>
           <h2 id="why-radius-title" className="section-title">
-            A complete <span className="gradient-text">Radius social experience</span>
+            A complete <span className="gradient-text">social experience</span>
           </h2>
-          <p className="section-description">
-            <strong>Radius app</strong> combines proximity discovery, group communities, rich messaging, 
-            and helpful features — all while keeping your privacy intact. The best <strong>social discovery app</strong> available.
-          </p>
         </motion.header>
 
         <div className="benefits-grid" role="list">

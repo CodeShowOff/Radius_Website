@@ -76,15 +76,10 @@ const FAQ = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">Radius FAQ</span>
+          <span className="section-label">FAQ</span>
           <h2 id="faq-title" className="section-title">
-            Frequently asked questions
-            <span className="gradient-text"> about Radius</span>
+            Frequently asked <span className="gradient-text">questions</span>
           </h2>
-          <p className="section-description">
-            Everything you need to know about <strong>Radius app</strong>. Can't find the answer 
-            you're looking for? Feel free to contact our Radius support team.
-          </p>
         </motion.header>
 
         <motion.div

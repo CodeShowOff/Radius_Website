@@ -67,9 +67,7 @@ const DownloadSection = () => {
           </h2>
 
           <p className="download-description" itemProp="description">
-            <strong>Download Radius</strong> now and start discovering genuine connections 
-            in your vicinity. <strong>Radius is free</strong>, private, and takes seconds to set up.
-            The best <strong>social discovery app</strong> for meeting people nearby.
+            Free, private, and takes seconds to set up.
           </p>
 
           <div className="store-buttons">

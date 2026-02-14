@@ -1,145 +1,42 @@
-import { useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import React from 'react';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { 
-  UserPlus, Globe, MessageCircle, Users, Sparkles, 
-  Bluetooth, MapPin, BluetoothSearching,
-  HandHeart, Shield, Image, Mic, Shuffle
+  UserPlus, Globe, MessageCircle, Users, Sparkles
 } from 'lucide-react';
 import './HowItWorks.css';
 
 const HowItWorks = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [activeFeature, setActiveFeature] = useState(0);
 
   const steps = [
     {
       number: '01',
       icon: UserPlus,
       title: 'Discover & Connect',
-      description: 'Find people nearby via Bluetooth, or discover global groups by interests. Send connection requests with mutual consent.',
+      description: 'Find people nearby via Bluetooth or discover global groups.',
       color: '#8B5CF6',
     },
     {
       number: '02',
       icon: Globe,
       title: 'Join Communities',
-      description: 'Join location-based groups, random topic groups, or create nearby groups for events. Connect with like-minded people.',
+      description: 'Location-based groups, topic groups, or nearby event groups.',
       color: '#06B6D4',
     },
     {
       number: '03',
       icon: MessageCircle,
       title: 'Rich Conversations',
-      description: 'Chat with texts, voice messages, photos, and stickers. Enjoy rich communication features for meaningful connections.',
+      description: 'Chat with texts, voice messages, photos, and stickers.',
       color: '#F472B6',
     },
     {
       number: '04',
       icon: Users,
       title: 'Build Community',
-      description: 'Help others with Nearby Help, participate in group discussions, and create meaningful connections.',
+      description: 'Help nearby users and create meaningful connections.',
       color: '#10B981',
-    },
-  ];
-
-  const features = [
-    {
-      icon: Bluetooth,
-      title: 'Proximity Discovery',
-      color: '#8B5CF6',
-      steps: [
-        'Enable Bluetooth on your device',
-        'Open Radius app to start broadcasting',
-        'View nearby users sorted by distance',
-        'Send connection request to anyone',
-      ],
-      description: 'Uses Bluetooth LE to detect other Radius users within 10 meters without GPS tracking.'
-    },
-    {
-      icon: MessageCircle,
-      title: 'Rich Messaging',
-      color: '#06B6D4',
-      steps: [
-        'Send text messages instantly',
-        'Record and share voice messages',
-        'Share photos, stickers, documents',
-        'Get read receipts and notifications',
-      ],
-      description: 'Full-featured chat with everything you need for meaningful conversations.'
-    },
-    {
-      icon: MapPin,
-      title: 'Location Groups',
-      color: '#F59E0B',
-      steps: [
-        'Browse groups in your city/region',
-        'Request to join existing groups',
-        'Participate in local discussions',
-        'Discover community events',
-      ],
-      description: 'Join location-based communities to connect with people in your area.'
-    },
-    {
-      icon: Globe,
-      title: 'Random Group Chatrooms',
-      color: '#8B5CF6',
-      steps: [
-        'Create a group with name & topic',
-        'Set description and rules',
-        'Review join requests as admin',
-        'Build quality discussions',
-      ],
-      description: 'Internet-based groups by interests with admin-approved membership for quality.'
-    },
-    {
-      icon: BluetoothSearching,
-      title: 'Nearby Groups',
-      color: '#3B82F6',
-      steps: [
-        'Create a temporary Bluetooth group',
-        'Your device scans for nearby users',
-        'Members auto-join when detected',
-        'Perfect for events and gatherings',
-      ],
-      description: 'Create spontaneous groups that automatically add people around you.'
-    },
-    {
-      icon: Shuffle,
-      title: 'Random Chat',
-      color: '#F472B6',
-      steps: [
-        'Receive up to 10 random user suggestions daily',
-        'Send connection requests to people you like',
-        'Chat one-on-one when they accept',
-        'Resets at midnight for fresh opportunities',
-      ],
-      description: 'Daily random discovery for spontaneous connections. One active chat per day.'
-    },
-    {
-      icon: HandHeart,
-      title: 'Nearby Help',
-      color: '#EC4899',
-      steps: [
-        'Set your home/work locations',
-        'Request help when needed',
-        'Nearby users get notified',
-        'Helpers can navigate to you',
-      ],
-      description: 'SOS feature using location for emergency assistance. The only Radius feature that uses GPS for safety.'
-    },
-    {
-      icon: Shield,
-      title: 'Privacy Controls',
-      color: '#EF4444',
-      steps: [
-        'Toggle discovery on/off anytime',
-        'Control who can message you',
-        'Disable help alerts in settings',
-        'GPS only for SOS Nearby Help',
-      ],
-      description: 'Complete control over your visibility and privacy. Bluetooth for discovery, location only for emergency help.'
     },
   ];
 
@@ -178,10 +75,6 @@ const HowItWorks = () => {
           <h2 className="section-title">
             Your journey in <span className="gradient-text">four simple steps</span>
           </h2>
-          <p className="section-description">
-            From discovering nearby people to joining global communities, 
-            Radius offers multiple ways to connect and build relationships.
-          </p>
         </motion.div>
 
         <div className="steps-wrapper">
@@ -305,10 +198,6 @@ const HowItWorks = () => {
           
           <div className="demo-content">
             <h3>Real-Time Discovery</h3>
-            <p>
-              Watch as Radius detects other users around you. The closer they are, 
-              the stronger the signal. It's like having a social radar in your pocket.
-            </p>
             <ul className="demo-features">
               <li>
                 <span className="demo-dot very-close"></span>
@@ -323,83 +212,6 @@ const HowItWorks = () => {
                 Far (3-10m+)
               </li>
             </ul>
-          </div>
-        </motion.div>
-
-        {/* Feature Explorer */}
-        <motion.div
-          className="feature-explorer"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1.5 }}
-        >
-          <h3>Explore Features</h3>
-          <div className="explorer-container">
-            <div className="explorer-tabs">
-              {features.map((feature, index) => (
-                <button
-                  key={feature.title}
-                  className={`explorer-tab ${activeFeature === index ? 'active' : ''}`}
-                  onClick={() => setActiveFeature(index)}
-                  style={{
-                    borderColor: activeFeature === index ? feature.color : 'transparent',
-                  }}
-                >
-                  <feature.icon size={18} style={{ color: feature.color }} />
-                  <span>{feature.title}</span>
-                </button>
-              ))}
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeFeature}
-                className="explorer-content"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="explorer-header">
-                  <div 
-                    className="explorer-icon"
-                    style={{ 
-                      background: `linear-gradient(135deg, ${features[activeFeature].color}30 0%, ${features[activeFeature].color}10 100%)`,
-                    }}
-                  >
-                    {React.createElement(features[activeFeature].icon, { 
-                      size: 32, 
-                      style: { color: features[activeFeature].color } 
-                    })}
-                  </div>
-                  <div>
-                    <h4>{features[activeFeature].title}</h4>
-                    <p>{features[activeFeature].description}</p>
-                  </div>
-                </div>
-
-                <div className="explorer-steps">
-                  <h5>How it works:</h5>
-                  {features[activeFeature].steps.map((step, index) => (
-                    <motion.div
-                      key={index}
-                      className="explorer-step"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <div 
-                        className="explorer-step-number"
-                        style={{ background: features[activeFeature].color }}
-                      >
-                        {index + 1}
-                      </div>
-                      <span>{step}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
           </div>
         </motion.div>
       </div>

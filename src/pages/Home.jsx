@@ -2,7 +2,6 @@ import { lazy, Suspense, memo } from 'react'
 import { useCanonical, usePageMeta } from '../hooks/useCanonical'
 
 // Lazy load below-the-fold components for faster initial load
-const TrustedBy = lazy(() => import('../components/TrustedBy'))
 const Features = lazy(() => import('../components/Features'))
 const HowItWorks = lazy(() => import('../components/HowItWorks'))
 const WhyRadius = lazy(() => import('../components/WhyRadius'))
@@ -24,9 +23,6 @@ const Home = () => {
 
   return (
     <>
-      <Suspense fallback={<SectionPlaceholder />}>
-        <TrustedBy />
-      </Suspense>
       <Suspense fallback={<SectionPlaceholder />}>
         <Features />
       </Suspense>
