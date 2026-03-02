@@ -16,8 +16,8 @@ const SectionPlaceholder = memo(() => (
 const Home = () => {
   useCanonical('/')
   usePageMeta({
-    title: 'Radius App - Meet People Nearby | Best Privacy Social App & Bluetooth Social Network',
-    description: 'Radius App is the #1 privacy-first social discovery app to meet people nearby without location tracking. Best privacy focused social app using Bluetooth proximity social network. Download Radius free iOS & Android - anonymous chat with nearby strangers, nearby groups, nearby help app, and nearby connections app. Radius social media reimagined.',
+    title: 'Radius App - Meet People Nearby | Privacy Social Network',
+    description: 'Radius App is the #1 privacy-first social app to meet people nearby using Bluetooth. No location tracking. Download free on iOS & Android.',
     keywords: 'Radius App, Radius, Radius Social Media, Radius download, Radius social app, Radius Connect, meet people nearby, social discovery app, bluetooth social app, privacy social app, nearby connections app, nearby groups, nearby help app'
   })
 

@@ -1,0 +1,7 @@
+# Redirect www to non-www for canonical consistency
+# This fixes "Alternate page with proper canonical tag" issue
+https://www.radiusapp.tech/*  https://radiusapp.tech/:splat  301!
+
+# SPA fallback - serve index.html for all routes
+# This fixes 404 errors when Google crawls client-side routes
+/*    /index.html   200

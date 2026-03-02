@@ -41,7 +41,7 @@ function App() {
 
   useEffect(() => {
     // Update page title dynamically for better SEO signals
-    document.title = 'Radius App - Meet People Nearby | Best Privacy Social App & Bluetooth Social Network';
+    document.title = 'Radius App - Meet People Nearby | Privacy Social Network';
     
     // Add dynamic structured data for real-time updates
     const updateStructuredData = () => {
@@ -57,6 +57,7 @@ function App() {
         "name": "Radius App - Best Privacy Focused Social App",
         "description": "Radius App is the #1 best privacy focused social app and bluetooth proximity social network. Meet people nearby without location tracking. Download Radius social app free iOS Android with nearby connections, nearby groups, and anonymous chat.",
         "url": window.location.href,
+        "image": "https://radiusapp.tech/og-image.png",
         "dateModified": new Date().toISOString(),
         "inLanguage": "en-US",
         "isPartOf": {
