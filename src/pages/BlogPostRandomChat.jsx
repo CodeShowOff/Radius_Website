@@ -491,10 +491,10 @@ const BlogPostRandomChat = () => {
               Ready to connect with people from around the world? Download Radius and dive into Random Chat. You never know who you'll meet or what you'll discover.
             </p>
             <div className="cta-buttons">
-              <a href="https://apps.apple.com/app/radius" className="btn-primary" target="_blank" rel="noopener noreferrer">
-                Download for iOS
+              <a href="/download" className="btn-primary">
+                Download Radius
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.radius.app" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <a href="https://play.google.com/store/apps/details?id=com.codeshowoff.radius" className="btn-secondary" target="_blank" rel="noopener noreferrer">
                 Download for Android
               </a>
             </div>

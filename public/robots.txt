@@ -1,5 +1,5 @@
 # Robots.txt for Radius App
-# https://radius.app
+# https://radiusapp.tech
 
 User-agent: *
 Allow: /

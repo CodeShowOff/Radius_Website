@@ -20,56 +20,56 @@
   
   <url>
     <loc>https://radiusapp.tech/download</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/features</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/how-it-works</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/nearby-groups</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/faq</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/about</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/contact</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/careers</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -77,21 +77,21 @@
   <!-- Legal Pages -->
   <url>
     <loc>https://radiusapp.tech/privacy</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/terms</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://radiusapp.tech/cookies</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -99,49 +99,56 @@
   <!-- Blog Pages -->
   <url>
     <loc>https://radiusapp.tech/blog</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://radiusapp.tech/blog/getting-started-with-radius</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://radiusapp.tech/blog/getting-started</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://radiusapp.tech/blog/privacy-features</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://radiusapp.tech/blog/bluetooth-privacy</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://radiusapp.tech/blog/meeting-people-nearby</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://radiusapp.tech/blog/radius-vs-dating-apps</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://radiusapp.tech/blog/bluetooth-proximity</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://radiusapp.tech/blog/nearby-groups</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://radiusapp.tech/blog/groups-communities</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://radiusapp.tech/blog/nearby-help</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://radiusapp.tech/blog/safety-tips</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://radiusapp.tech/blog/random-chat</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://radiusapp.tech/blog/location-groups</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

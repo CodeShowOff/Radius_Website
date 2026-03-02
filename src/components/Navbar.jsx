@@ -52,7 +52,8 @@ const Navbar = () => {
       // Direct APK download for Android users
       window.location.href = '/Radius.apk';
     } else if (isIOS) {
-      window.location.href = 'https://apps.apple.com/app/radius/id123456789';
+      // iOS App Store - redirect to download page until app is published
+      window.location.href = '/download';
     } else {
       document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
     }

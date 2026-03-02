@@ -46,7 +46,7 @@ const Cookies = () => {
               in the traditional web sense.
             </p>
             <p>
-              This policy primarily applies to our website (radiusconnect.tech) and explains 
+              This policy primarily applies to our website (radiusapp.tech) and explains 
               what technologies might be used in the future as we expand our services.
             </p>
           </section>
@@ -101,7 +101,7 @@ const Cookies = () => {
             </div>
             <h2>Website Cookies</h2>
             <p>
-              Our website (radiusconnect.tech) currently uses minimal cookies:
+              Our website (radiusapp.tech) currently uses minimal cookies:
             </p>
 
             <h3>Essential Cookies</h3>

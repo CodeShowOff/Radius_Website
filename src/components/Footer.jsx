@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand" itemScope itemType="https://schema.org/Organization">
             <meta itemProp="name" content="Radius" />
-            <meta itemProp="url" content="https://radius.app" />
+            <meta itemProp="url" content="https://radiusapp.tech" />
             <Link to="/">
               <motion.div
                 className="footer-logo"

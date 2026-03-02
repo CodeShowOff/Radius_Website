@@ -3,37 +3,37 @@
   <channel>
     <title>Radius App - News & Updates</title>
     <description>Latest news, updates, and features from Radius - the privacy-first social discovery app for meeting people nearby using Bluetooth technology.</description>
-    <link>https://radiusconnect.tech</link>
-    <atom:link href="https://radiusconnect.tech/rss.xml" rel="self" type="application/rss+xml"/>
+    <link>https://radiusapp.tech</link>
+    <atom:link href="https://radiusapp.tech/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2026 00:00:00 GMT</lastBuildDate>
-    <pubDate>Mon, 03 Feb 2026 00:00:00 GMT</pubDate>
-    <managingEditor>hello@radius.app (Radius Team)</managingEditor>
-    <webMaster>support@radius.app (Radius Support)</webMaster>
+    <lastBuildDate>Sun, 02 Mar 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Sun, 02 Mar 2026 00:00:00 GMT</pubDate>
+    <managingEditor>support@radiusapp.tech (Radius Team)</managingEditor>
+    <webMaster>support@radiusapp.tech (Radius Support)</webMaster>
     <category>Technology</category>
     <category>Social Networking</category>
     <category>Mobile Apps</category>
     <ttl>1440</ttl>
     <image>
-      <url>https://radiusconnect.tech/logo.png</url>
+      <url>https://radiusapp.tech/logo.png</url>
       <title>Radius App</title>
-      <link>https://radiusconnect.tech</link>
+      <link>https://radiusapp.tech</link>
       <width>144</width>
       <height>144</height>
     </image>
     
     <item>
-      <title>Radius Connect App Launch - Social Discovery Reimagined</title>
-      <description>Radius Connect is now available on iOS and Android! Connect with people nearby, join group chatrooms, chat with rich media, and help your community. Download now for free - privacy-first social networking without tracking.</description>
-      <link>https://radiusconnect.tech/#download</link>
-      <guid isPermaLink="true">https://radiusconnect.tech/#download</guid>
-      <pubDate>Mon, 03 Feb 2026 00:00:00 GMT</pubDate>
+      <title>Radius App Launch - Social Discovery Reimagined</title>
+      <description>Radius App is now available on iOS and Android! Connect with people nearby, join group chatrooms, chat with rich media, and help your community. Download now for free - privacy-first social networking without tracking.</description>
+      <link>https://radiusapp.tech/download</link>
+      <guid isPermaLink="true">https://radiusapp.tech/download</guid>
+      <pubDate>Sun, 02 Mar 2026 00:00:00 GMT</pubDate>
       <category>Launch</category>
-      <category>Radius Connect</category>
+      <category>Radius App</category>
       <content:encoded><![CDATA[
-        <h2>Introducing Radius Connect - The Privacy-First Social Discovery App</h2>
-        <p>We're thrilled to announce the launch of <strong>Radius Connect</strong>, a revolutionary social discovery app and social media platform that helps you connect with people nearby and build meaningful communities.</p>
-        <h3>Key Features of Radius Connect:</h3>
+        <h2>Introducing Radius App - The Privacy-First Social Discovery App</h2>
+        <p>We're thrilled to announce the launch of <strong>Radius App</strong>, a revolutionary social discovery app and social media platform that helps you connect with people nearby and build meaningful communities.</p>
+        <h3>Key Features of Radius App:</h3>
         <ul>
           <li><strong>Proximity Discovery</strong> - Find and connect with people nearby</li>
           <li><strong>Rich Messaging</strong> - Send texts, voice messages, photos, stickers, and documents</li>
@@ -42,16 +42,16 @@
           <li><strong>Nearby Help</strong> - Request or provide assistance to people in your vicinity</li>
           <li><strong>100% Privacy</strong> - No location tracking, no data selling</li>
         </ul>
-        <p><a href="https://radiusconnect.tech/#download">Download Radius free</a> on iOS and Android today!</p>
+        <p><a href="https://radiusapp.tech/download">Download Radius free</a> on iOS and Android today!</p>
       ]]></content:encoded>
     </item>
     
     <item>
       <title>Why Radius Uses Bluetooth Instead of GPS for Social Discovery</title>
       <description>Learn why Radius chose Bluetooth Low Energy technology for proximity detection instead of GPS. Privacy, accuracy, and genuine in-person connections are at the heart of our approach.</description>
-      <link>https://radiusconnect.tech/#features</link>
-      <guid isPermaLink="true">https://radiusconnect.tech/#features</guid>
-      <pubDate>Mon, 03 Feb 2026 00:00:00 GMT</pubDate>
+      <link>https://radiusapp.tech/features</link>
+      <guid isPermaLink="true">https://radiusapp.tech/features</guid>
+      <pubDate>Sun, 02 Mar 2026 00:00:00 GMT</pubDate>
       <category>Technology</category>
       <category>Privacy</category>
     </item>

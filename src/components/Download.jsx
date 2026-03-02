@@ -20,7 +20,8 @@ const DownloadSection = () => {
       // Direct APK download
       window.location.href = '/Radius.apk';
     } else if (platform === 'ios' || (platform === 'auto' && isIOS)) {
-      window.location.href = 'https://apps.apple.com/app/radius/id123456789';
+      // iOS App Store - redirect to website download page until app is published
+      window.location.href = '/download';
     } else if (platform === 'auto' && !isMobile) {
       // For desktop users, scroll to show all options
       window.scrollBy({ top: 200, behavior: 'smooth' });

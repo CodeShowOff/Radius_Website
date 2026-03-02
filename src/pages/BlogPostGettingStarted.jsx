@@ -140,11 +140,11 @@ const BlogPostGettingStarted = () => {
             </ol>
 
             <div className="cta-buttons">
-              <a href="https://apps.apple.com/app/radius" className="btn-primary" target="_blank" rel="noopener noreferrer">
+              <a href="/download" className="btn-primary">
                 <Download size={20} />
-                Download for iOS
+                Download Radius
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.radius.app" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <a href="https://play.google.com/store/apps/details?id=com.codeshowoff.radius" className="btn-secondary" target="_blank" rel="noopener noreferrer">
                 <Download size={20} />
                 Download for Android
               </a>
@@ -594,10 +594,10 @@ const BlogPostGettingStarted = () => {
               You now have everything you need to start making meaningful connections with Radius. Download the app, set up your profile, and discover people nearby who share your interests.
             </p>
             <div className="cta-buttons">
-              <a href="https://apps.apple.com/app/radius" className="btn-primary" target="_blank" rel="noopener noreferrer">
-                Download for iOS
+              <a href="/download" className="btn-primary">
+                Download Radius
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.radius.app" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <a href="https://play.google.com/store/apps/details?id=com.codeshowoff.radius" className="btn-secondary" target="_blank" rel="noopener noreferrer">
                 Download for Android
               </a>
             </div>

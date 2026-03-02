@@ -49,7 +49,8 @@ const Hero = () => {
       // Direct APK download for Android users
       window.location.href = '/Radius.apk';
     } else if (isIOS) {
-      window.location.href = 'https://apps.apple.com/app/radius/id123456789';
+      // iOS App Store - redirect to download page until app is published
+      window.location.href = '/download';
     } else {
       document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -102,8 +103,7 @@ const Hero = () => {
               <meta itemProp="name" content="Radius" />
               <meta itemProp="applicationCategory" content="SocialNetworkingApplication" />
               <meta itemProp="operatingSystem" content="iOS, Android" />
-              <link itemProp="downloadUrl" href="https://apps.apple.com/app/radius/id123456789" />
-              <link itemProp="downloadUrl" href="https://play.google.com/store/apps/details?id=com.radius.app" />
+              <link itemProp="downloadUrl" href="https://play.google.com/store/apps/details?id=com.codeshowoff.radius" />
               
               <motion.div
                 className="hero-badge"

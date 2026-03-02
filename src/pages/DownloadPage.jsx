@@ -66,16 +66,8 @@ function DownloadPage() {
           </p>
           <div className="cta-buttons">
             <a 
-              href="https://apps.apple.com/app/radius/id123456789" 
+              href="https://play.google.com/store/apps/details?id=com.codeshowoff.radius" 
               className="cta-button primary"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Download on App Store
-            </a>
-            <a 
-              href="https://play.google.com/store/apps/details?id=com.radius.app" 
-              className="cta-button secondary"
               rel="noopener noreferrer"
               target="_blank"
             >
