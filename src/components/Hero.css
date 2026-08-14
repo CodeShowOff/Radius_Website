@@ -101,6 +101,16 @@
   text-align: center;
   box-shadow: 0 4px 20px rgba(255, 59, 48, 0.3);
   animation: alert-pulse 2s infinite;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-sale-alert {
+    font-size: 0.95rem;
+    padding: 12px 16px;
+  }
 }
 
 @keyframes alert-pulse {
