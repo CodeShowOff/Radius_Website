@@ -106,6 +106,15 @@ const Hero = () => {
               <link itemProp="downloadUrl" href="https://play.google.com/store/apps/details?id=com.codeshowoff.radius" />
               
               <motion.div
+                className="hero-sale-alert"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                🚨 <strong>PROJECT ON SALE!</strong> Contact <a href="mailto:connectme.shubham@gmail.com">connectme.shubham@gmail.com</a> to purchase.
+              </motion.div>
+
+              <motion.div
                 className="hero-badge"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
