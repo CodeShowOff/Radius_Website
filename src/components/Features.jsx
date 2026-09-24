@@ -133,6 +133,15 @@ const Features = () => {
   return (
     <section id="features" className="features-section" ref={ref} aria-labelledby="features-title">
       <div className="container">
+        <motion.div
+          className="features-sale-alert"
+          initial={{ opacity: 0, y: -20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          🚨 <strong>PROJECT ON SALE!</strong> Contact <a href="mailto:connectme.shubham@gmail.com">connectme.shubham@gmail.com</a> to purchase.
+        </motion.div>
+
         <motion.header
           className="features-header"
           initial={{ opacity: 0, y: 20 }}
@@ -216,6 +225,25 @@ const Features = () => {
                 </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="screenshots-carousel-container"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className="screenshots-scroll-view">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+              <img 
+                key={num}
+                src={`/screenshots/${num}.jpeg`} 
+                alt={`Radius App Screenshot ${num}`}
+                className="carousel-image"
+                loading="lazy"
+              />
+            ))}
           </div>
         </motion.div>
       </div>

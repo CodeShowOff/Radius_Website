@@ -240,3 +240,106 @@
     font-size: 1.75rem;
   }
 }
+
+/* Sale Alert Banner */
+.features-sale-alert {
+  background: rgba(255, 59, 48, 0.15);
+  border: 2px solid rgba(255, 59, 48, 0.5);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin-bottom: 40px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255, 59, 48, 0.3);
+  animation: alert-pulse 2s infinite;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .features-sale-alert {
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    margin-bottom: 30px;
+  }
+}
+
+@keyframes alert-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+}
+
+.features-sale-alert a {
+  color: #ffda75;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.features-sale-alert a:hover {
+  color: #fff;
+}
+
+/* Screenshots Carousel */
+.screenshots-carousel-container {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.screenshots-scroll-view {
+  display: flex;
+  overflow-x: auto;
+  gap: 24px;
+  padding: 20px 0 40px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screenshots-scroll-view::-webkit-scrollbar {
+  height: 8px;
+}
+
+.screenshots-scroll-view::-webkit-scrollbar-track {
+  background: var(--background-card);
+  border-radius: 4px;
+}
+
+.screenshots-scroll-view::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.carousel-image {
+  height: 550px;
+  width: auto;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.carousel-image:hover {
+  transform: translateY(-8px);
+}
+
+@media (max-width: 768px) {
+  .screenshots-carousel-container {
+    margin-top: 60px;
+  }
+  .carousel-image {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-image {
+    height: 350px;
+  }
+}
