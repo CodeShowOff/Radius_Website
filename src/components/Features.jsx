@@ -235,7 +235,7 @@ const Features = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="screenshots-scroll-view">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
               <img 
                 key={num}
                 src={`/screenshots/${num}.jpeg`} 

@@ -114,7 +114,7 @@ const Blog = () => {
             >
               <Link to={post.link} className="blog-card-link">
                 <div className="blog-image">
-                  <img src={post.image} alt={post.title} />
+                  <img src={post.image} alt={post.title} loading="lazy" />
                   <span className="blog-category">{post.category}</span>
                 </div>
                 <div className="blog-content">
